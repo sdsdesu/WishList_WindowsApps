@@ -8,7 +8,8 @@
     mc:Ignorable="d">
 
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
+        <Button x:Name="button" Content="committestbutton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
 
     </StackPanel>
 </Page>
