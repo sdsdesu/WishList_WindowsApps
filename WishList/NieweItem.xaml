@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="WishList.NieweItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WishList"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock Text="Een Nieuwe Wishlist aanmaken" />
+        <!--The name of the user wil go in this TextBlock-->
+        <TextBlock x:Name="NameUser" TextWrapping="Wrap" Text="Naam "></TextBlock>
+        <TextBlock Text="Naam lijst" />
+        <!--the user can put the name of the wishlist in this Textbox-->
+        <TextBlock Text="Naam item" />
+        <TextBox x:Name="Namelist"/>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Add Item"/>
+            <Button Content="Back"/>
+        </StackPanel>
+    </StackPanel>
+</Page>
