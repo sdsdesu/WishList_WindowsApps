@@ -19,10 +19,22 @@ namespace WishList.Models
         private User Buyer { get; set; }                        //function isbought returns bool (if Buyer == null then not bought) - can multiple people buy same gift
 
         //Constructors
-        public Item()
+        public Item(string name, string description, Category category)
         {
+            Name = name;
+            Description = description;
+            Category = category;
 
         }
+
+        public Item(string name, string description, string weblink, Category category): this(name, description, category)
+        {
+            WebLink = weblink;
+        }
+
+
+
+
 
 
     }

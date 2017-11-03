@@ -15,9 +15,11 @@ namespace WishList.Models
         private DateTime Deadline { get; set; }         //deadline of event, when it takes place, maybe allow for days before so everything is in order before the deadline
 
         //Constructors
-        public Event()
+        public Event(string name, string description, DateTime deadline)
         {
-
+            Name = name;
+            Description = description;
+            Deadline = deadline;
         }
 
 

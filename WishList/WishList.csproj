@@ -118,6 +118,7 @@
       <DependentUpon>NieweItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repostitory\TestRepository.cs" />
     <Compile Include="WishListPage.xaml.cs">
       <DependentUpon>WishListPage.xaml</DependentUpon>
     </Compile>
@@ -170,7 +171,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Repostitory\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

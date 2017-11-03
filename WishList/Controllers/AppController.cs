@@ -24,6 +24,7 @@ namespace WishList.Controllers
         //Functions
         //Function 1)AddContact - add contact to contactlist of logged in user via email address
         public bool addContact(string email) {
+            //check email ignore case
             //1) check if email same as email of loggedInUser, if so dont add and return false          [Errormessage: You cannot add yourself to your contactlist]
             //2) check if new contact allready exists in contactlist, if so returen false               [Errormessage: You allready have contact {contactname} in your list]
             //3) check if contact is a registered user (check if contact exists), if so return false    [Errormessage: The contact {email} you wish to add was not found in the user database]

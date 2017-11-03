@@ -20,11 +20,6 @@ namespace WishList.Models
 
 
         //Constructors
-        public User()
-        {
-
-        }
-
         public User(string firstname, string lastname, string email)
         {
             //Look up how to do unique id !!! TO DO

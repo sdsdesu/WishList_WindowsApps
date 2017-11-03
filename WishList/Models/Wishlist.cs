@@ -22,18 +22,12 @@ namespace WishList.Models
         //when item unbought buyer can see box to mark purchase, gives confirmation and buyers get connected to item
 
         //Constructors
-        public Wishlist()
-        {
-
-        }
-
         public Wishlist(string title)
         {
             Title = title;
         }
-        public Wishlist(string title, Event occasion)
+        public Wishlist(string title, Event occasion) : this(title)
         {
-            Title = title;
             Event = occasion;
         }
 

@@ -14,6 +14,8 @@ namespace WishList.Models
         Tech,
         Garden,
         Tools,
+        Literature,
+        Consumable
 
     }
 
