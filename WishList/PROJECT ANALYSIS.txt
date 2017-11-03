@@ -1,6 +1,6 @@
 ﻿PROJECT ANALYSIS
 
-user logs in (no need to choose between buyer or owner)
+user logs in (no need to choose between buyer or owner) - but has option to register as new user - User logs in using email as username and password
 
 default main view is list of user's own wishlists (if empty its button [ + create wishlist])
 user can swipe to show sidebar
@@ -54,5 +54,5 @@ REMARKS
 - can multiple people buy same gift by buying together?
 
 
-	
+-Top bar shows currently logged in user and logoutbutton (maybe replace profile in sidetab with this name to go to profile page)	
 	

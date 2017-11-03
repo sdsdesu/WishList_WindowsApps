@@ -18,6 +18,11 @@ namespace WishList.Models
         private Category Category { get; set; }                 //item category for filtering and determening order of item presentation
         private User Buyer { get; set; }                        //function isbought returns bool (if Buyer == null then not bought) - can multiple people buy same gift
 
+        //Constructors
+        public Item()
+        {
+
+        }
 
 
     }

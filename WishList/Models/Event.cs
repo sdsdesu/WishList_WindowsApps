@@ -14,6 +14,11 @@ namespace WishList.Models
         private string Description { get; set; }        //text description of evente
         private DateTime Deadline { get; set; }         //deadline of event, when it takes place, maybe allow for days before so everything is in order before the deadline
 
+        //Constructors
+        public Event()
+        {
+
+        }
 
 
     }
