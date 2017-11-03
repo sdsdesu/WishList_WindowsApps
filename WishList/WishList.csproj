@@ -108,6 +108,11 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Wishlist.cs" />
     <Compile Include="NieweItem.xaml.cs">
       <DependentUpon>NieweItem.xaml</DependentUpon>
     </Compile>
@@ -161,6 +166,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
