@@ -30,10 +30,10 @@ namespace WishList.Controllers
             //3) check if contact is a registered user (check if contact exists), if so return false    [Errormessage: The contact {email} you wish to add was not found in the user database]
 
             //Add funtion to retrieve user from DB using email address here
-            User newContact = new User();   //TEMP UNTIL WE CAN ACTUALY GET USER -  User newContact = GetContact(email); 
+            //User newContact = new User();   //TEMP UNTIL WE CAN ACTUALY GET USER -  User newContact = GetContact(email); 
 
             //add contact to contactlist of user
-            User.addContact(newContact);
+            //User.addContact(newContact);
             
             //returen false on failure, true on success
             return true;

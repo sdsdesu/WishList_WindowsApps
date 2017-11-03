@@ -7,15 +7,17 @@ using System.Threading.Tasks;
 namespace WishList.Models
 {
     public enum Category {
+
+        Consumable,
+        Garden,
+        Kitchen,
+        Literature,
         Music,
         Sports,
-        Kitchen,
-        Toys,
         Tech,
-        Garden,
         Tools,
-        Literature,
-        Consumable
+        Toys
+
 
     }
 

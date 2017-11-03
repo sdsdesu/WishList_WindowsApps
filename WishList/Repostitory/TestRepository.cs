@@ -24,10 +24,12 @@ namespace WishList.Repostitory
             Event occasion1 = new Event("Graduation party", "school after party", new DateTime(2018, 2, 28));
             Event occasion2 = new Event("Birthday", "live at chucky cheese", new DateTime(2017, 11, 25));
             Event occasion3 = new Event("Christmas", "Is this still about jesus", new DateTime(2017, 12, 25));
+            Event occasion4 = new Event("empty party", "wishlist widouth buyers and items", new DateTime(2019, 12, 30));
 
             Wishlist wishlist1 = new Wishlist("Fuck da police", occasion1);
             Wishlist wishlist2 = new Wishlist("Gimme stuff", occasion2);
             Wishlist wishlist3 = new Wishlist("Jolly fat man", occasion3);
+            Wishlist wishlist4 = new Wishlist("Nihilism", occasion4);
 
             wishlist1.addBuyer(UserThree);
             wishlist2.addBuyer(UserOne);
@@ -40,12 +42,14 @@ namespace WishList.Repostitory
 
             wishlist1.addItem(gift1);
             wishlist1.addItem(gift4);
-            wishlist2.addItem(gift2);
-            wishlist2.addItem(gift3);
+            wishlist3.addItem(gift2);
+            wishlist3.addItem(gift3);
 
             UserOne.addWishlist(wishlist1);
+            UserOne.addWishlist(wishlist4);
             UserTwo.addWishlist(wishlist2);
             UserTwo.addWishlist(wishlist3);
+
 
             users.Add(UserOne);
             users.Add(UserTwo);
