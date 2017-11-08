@@ -13,22 +13,19 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace WishList
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class UCNavControl : UserControl
     {
-        public MainPage()
+        public UCNavControl()
         {
             this.InitializeComponent();
         }
-
-        //NAVIGATION FUNCTIONS
-        public void SideBarButton_Click(object sender, RoutedEventArgs e) {
+        /*
+        public void SideBarButton_Click(object sender, RoutedEventArgs e)
+        {
             SplitNav.IsPaneOpen = !SplitNav.IsPaneOpen;
         }
         public void ButtonMyWishlists_Click(object sender, RoutedEventArgs e)
@@ -43,6 +40,6 @@ namespace WishList
         {
             Frame.Navigate(typeof(ListAanmaken));
         }
-
+        */
     }
 }
