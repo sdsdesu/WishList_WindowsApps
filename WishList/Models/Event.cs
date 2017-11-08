@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WishList.Models
 {
+    //Can't you just give the WishList a Description and a deathline;  Wishlist.Title = event.Name   
     class Event
     {
         //Variable declaration with getters and setters
