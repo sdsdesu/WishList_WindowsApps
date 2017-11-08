@@ -11,8 +11,8 @@ namespace WishList.Models
         //Variable declaration with getters and setters
         private int WishlistId { get; set; }                //id of whislist
         private string Title { get; set; }                   //name of wishlist
-        private Event Event { get; set; }                   //reason for wishlist - could be enum but there might be special occasions outside holidays and birthdays, like babyshowers, new home party... (also needs to contain deadline)
         private User Owner { get; set; }                    //user that made the wishlist
+        private DateTime Deadline { get; set; }         //deadline of event, when it takes place, maybe allow for days before so everything is in order before the deadline
         private List<User> Buyers{ get; set; }              //Users invited to wishlists
         private List<Item> Items { get; set; }
 
@@ -26,17 +26,17 @@ namespace WishList.Models
         {
             Title = title;
         }
-        public Wishlist(string title, Event occasion) : this(title)
+        public Wishlist(string title, DateTime deadline) : this(title)
         {
-            Event = occasion;
+            Deadline = deadline;
         }
 
 
         //Functions
 
         //Function 1)Add Event
-        public void addEvent(Event occasion) {
-            Event = occasion;
+        public void addDeadline(DateTime deadline) {
+            Deadline = Deadline;
         }
 
         //Function 2)AddBuyer

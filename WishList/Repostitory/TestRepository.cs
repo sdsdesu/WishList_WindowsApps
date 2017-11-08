@@ -9,7 +9,7 @@ namespace WishList.Repostitory
 {
     class TestRepository
     {
-        List<User> users;
+        public static List<User> Users { get; set; }
 
         public TestRepository()
         {
@@ -21,15 +21,11 @@ namespace WishList.Repostitory
             UserTwo.addContact(UserOne);
             UserTwo.addContact(UserThree);
 
-            Event occasion1 = new Event("Graduation party", "school after party", new DateTime(2018, 2, 28));
-            Event occasion2 = new Event("Birthday", "live at chucky cheese", new DateTime(2017, 11, 25));
-            Event occasion3 = new Event("Christmas", "Is this still about jesus", new DateTime(2017, 12, 25));
-            Event occasion4 = new Event("empty party", "wishlist widouth buyers and items", new DateTime(2019, 12, 30));
 
-            Wishlist wishlist1 = new Wishlist("Fuck da police", occasion1);
-            Wishlist wishlist2 = new Wishlist("Gimme stuff", occasion2);
-            Wishlist wishlist3 = new Wishlist("Jolly fat man", occasion3);
-            Wishlist wishlist4 = new Wishlist("Nihilism", occasion4);
+            Wishlist wishlist1 = new Wishlist("Fuck da police", new DateTime(2018, 2, 28));
+            Wishlist wishlist2 = new Wishlist("Gimme stuff", new DateTime(2017, 11, 25));
+            Wishlist wishlist3 = new Wishlist("Jolly fat man", new DateTime(2017, 12, 25));
+            Wishlist wishlist4 = new Wishlist("Nihilism", new DateTime(2019, 12, 30));
 
             wishlist1.addBuyer(UserThree);
             wishlist2.addBuyer(UserOne);
@@ -50,11 +46,14 @@ namespace WishList.Repostitory
             UserTwo.addWishlist(wishlist2);
             UserTwo.addWishlist(wishlist3);
 
+            Users.Add(UserOne);
+            Users.Add(UserTwo);
+            Users.Add(UserThree);
 
-            users.Add(UserOne);
-            users.Add(UserTwo);
-            users.Add(UserThree);
+        }
 
+        public List<User> GetUsers() {
+            return Users;
         }
 
     }
