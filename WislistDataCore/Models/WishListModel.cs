@@ -8,10 +8,12 @@ namespace WislistDataCore.Models
     public class WishListModel
     {
         
-        public int ListId        {get;set;}
-        private string Title { get; set; }
-        public UserModel User   {get;set;}
+        public int ListId                            {get;set;}
+        private string Title                         { get; set; }
+        public UserModel User                        {get;set;}
         public virtual ICollection<ItemModel> Items { get; set; }
+        private string Description                  { get; set; }        
+        private DateTime Deadline                   { get; set; }         
 
 
 

@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 
 namespace WislistDataCore.Models
 {
-    interface CatagoryEnum
+    public class CategoryModel
     {
+        public int CategoryID { get; set; }
+        private string CategoryName { get; set; }
     }
 }
