@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <SplitView IsPaneOpen="True" DisplayMode="CompactOverlay" CompactpaneLength="50"  OpenPanlength="270">
+    <SplitView x:Name="SplitNav" IsPaneOpen="True" DisplayMode="CompactOverlay" CompactPaneLength="50"  OpenPaneLength="270">
         <SplitView.Pane>
             <StackPanel Background="Gray">
                 <Button x:Name="NavButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Width="50" Height="50" Background="Transparent" Click="SideBarButton_Click"/>
