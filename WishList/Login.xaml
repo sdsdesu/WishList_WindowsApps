@@ -18,4 +18,7 @@
         <Button x:Name="btnRecever" Content="Ontvanger" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         <Button x:Name="btnBuyer" Content="Koper" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </StackPanel>
+    
+    
+    
 </Page>
