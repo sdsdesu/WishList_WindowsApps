@@ -49,13 +49,9 @@ namespace WishList
 
         private void SelectionChanged_Wishlist(object sender, SelectionChangedEventArgs e)
         {
-
-
-
             if (myWishlists.SelectedItem != null)
             {
                 SelectedWishlist = (Wishlist) myWishlists.SelectedItem;
-                
             }
         }
 
@@ -67,6 +63,7 @@ namespace WishList
         }
         public void ViewWishlistButton_Click(object sender, RoutedEventArgs e)
         {
+            Runtime.AppController.SelectedWishlist = SelectedWishlist;
             Frame.Navigate(typeof(WishListPage));
         }
         public void RemoveWishlist_Click(object sender, RoutedEventArgs e)

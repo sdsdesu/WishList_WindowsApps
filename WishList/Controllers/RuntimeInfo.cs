@@ -13,7 +13,7 @@ namespace WishList.Controllers
         private static readonly RuntimeInfo _instance = new RuntimeInfo();
         public int LoggedInUserId { get; set; }
         public User LoggedInUser { get; set; }
-        AppController AppController { get; set; }
+        public AppController AppController { get; set; }
         public TestRepository TestRepos { get; set; }
         
 

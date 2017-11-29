@@ -7,11 +7,12 @@ using WishList.Models;
 
 namespace WishList.Controllers
 {
-    class AppController
+    public class AppController
     {
 
         //Variable declaration and getters and setters
         public User User { get; set; }      //currently logged in user on the app
+        public Wishlist SelectedWishlist { get; set; }
     
         //Constructors
         public AppController(){}
