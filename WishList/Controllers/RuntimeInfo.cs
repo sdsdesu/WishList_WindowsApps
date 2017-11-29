@@ -26,7 +26,5 @@ namespace WishList.Controllers
             AppController = new AppController();
         }
 
-
-
     }
 }

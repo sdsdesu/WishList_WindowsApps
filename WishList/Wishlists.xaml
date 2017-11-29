@@ -42,7 +42,8 @@
                                 <StackPanel Orientation="Horizontal" Margin="2" >
 
                                     <TextBlock x:Name="wishlistTitle" Text="{Binding Title}" Margin="2" />
-                                    <TextBlock  x:Name="wishlistDeadline" Text="{Binding DeadLine}" Margin="2" />
+                                    <TextBlock  Text=" Deadline: " Margin="2" />
+                                    <TextBlock x:Name="wishlistDeadline" Text="{Binding DeadlineS}" Margin="2" />
 
                                 </StackPanel>
                             </DataTemplate>

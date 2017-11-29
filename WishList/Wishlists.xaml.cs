@@ -63,8 +63,11 @@ namespace WishList
         }
         public void ViewWishlistButton_Click(object sender, RoutedEventArgs e)
         {
-            Runtime.AppController.SelectedWishlist = SelectedWishlist;
-            Frame.Navigate(typeof(WishListPage));
+            if (SelectedWishlist != null) {
+                Runtime.AppController.SelectedWishlist = SelectedWishlist;
+                Frame.Navigate(typeof(WishListPage));
+            }
+
         }
         public void RemoveWishlist_Click(object sender, RoutedEventArgs e)
         {
