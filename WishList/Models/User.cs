@@ -49,6 +49,9 @@ namespace WishList.Models
         public void addWishlist(Wishlist wishlist) {
             MyWishlists.Add(wishlist);
         }
+        public void removeWishlist(Wishlist wishlist) {
+            MyWishlists.Remove(wishlist);
+        }
 
         //Function 4)CheckIfOwner - check if user is owner of wishlist
         public bool isOwner(Wishlist w) {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WishList.Models;
 using WishList.Repostitory;
 
 namespace WishList.Controllers
@@ -11,6 +12,8 @@ namespace WishList.Controllers
     {
         private static readonly RuntimeInfo _instance = new RuntimeInfo();
         public int LoggedInUserId { get; set; }
+        public User LoggedInUser { get; set; }
+        AppController AppController { get; set; }
         public TestRepository TestRepos { get; set; }
         
 
@@ -20,6 +23,7 @@ namespace WishList.Controllers
 
         private RuntimeInfo() {
             TestRepos = new TestRepository();
+            AppController = new AppController();
         }
 
 

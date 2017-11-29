@@ -36,12 +36,13 @@
                     <TextBlock x:Name="Title" TextWrapping="Wrap" Text="My Wishlists" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="3" Margin="5,5,5,5"/>
                 </Grid>
                 <StackPanel>
-                    <ListBox x:Name="myWishlists" Height="500px" Margin="5,5,5,5" ItemsSource="{Binding}">
-                        <ListBox.ItemTemplate>
+                    <ListBox x:Name="myWishlists" ItemsSource="{Binding}" SelectionChanged="SelectionChanged_Wishlist" Height="500px" Margin="5,5,5,5" >
+                        <ListBox.ItemTemplate >
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Margin="2">
+                                <StackPanel Orientation="Horizontal" Margin="2" >
 
-                                    <TextBlock Text="{Binding Title}" Margin="2" />
+                                    <TextBlock x:Name="wishlistTitle" Text="{Binding Title}" Margin="2" />
+                                    <TextBlock  x:Name="wishlistDeadline" Text="{Binding DeadLine}" Margin="2" />
 
                                 </StackPanel>
                             </DataTemplate>

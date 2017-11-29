@@ -40,16 +40,17 @@
                     </ListBox>
                     <Grid HorizontalAlignment="Center">
                         <Grid.ColumnDefinitions >
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="100"/>
-
+                            <ColumnDefinition Width="110"/>
+                            <ColumnDefinition Width="110"/>
+                            <ColumnDefinition Width="110"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <Button Grid.Row="0" Grid.Column="0" Margin="10" Width="100" HorizontalAlignment="Center" Content="Add"  />
-                        <Button Grid.Row="0" Grid.Column="1" Margin="10" Width="100" HorizontalAlignment="Center" Content="Remove"  />
+                        <Button Grid.Row="0" Grid.Column="0" Margin="10" Width="110" HorizontalAlignment="Center" Content="Add Item"  />
+                        <Button Grid.Row="0" Grid.Column="1" Margin="10" Width="110" HorizontalAlignment="Center" Content="Add Buyer(s)"  />
+                        <Button Grid.Row="0" Grid.Column="2" Margin="10" Width="110" HorizontalAlignment="Center" Content="Remove"  />
                     </Grid>
                 </StackPanel>
             </StackPanel>
