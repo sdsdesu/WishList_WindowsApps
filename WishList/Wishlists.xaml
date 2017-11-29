@@ -26,7 +26,7 @@
             </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>
-            <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -36,7 +36,16 @@
                     <TextBlock x:Name="Title" TextWrapping="Wrap" Text="My Wishlists" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="3" Margin="5,5,5,5"/>
                 </Grid>
                 <StackPanel>
-                    <ListBox x:Name="myWishlists" Height="500px" Margin="5,5,5,5">
+                    <ListBox x:Name="myWishlists" Height="500px" Margin="5,5,5,5" ItemsSource="{Binding}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Margin="2">
+
+                                    <TextBlock Text="{Binding Title}" Margin="2" />
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
 
                     </ListBox>
                     <Grid HorizontalAlignment="Center">

@@ -13,6 +13,9 @@ namespace WishList.Repostitory
 
         public TestRepository()
         {
+
+            Users = new List<User>();
+
             User UserOne = new User("Timo", "Spanhove", "timo.spanhove@hotmail.com");
             User UserTwo = new User("Sander", "De Sutter", "Sander.desutter@hotmail.com");
             User UserThree = new User("Victor", "Van Weyenberg", "Vic.VW@hotmail.com");
