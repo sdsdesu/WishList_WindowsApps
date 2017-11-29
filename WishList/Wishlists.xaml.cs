@@ -28,16 +28,16 @@ namespace WishList
     {
 
         public ObservableCollection<Wishlist> MyWishlists = new ObservableCollection<Wishlist>();
-        RuntimeInfo runtimeInfo;
+        RuntimeInfo Runtime;
 
         public Wishlists()
         {
             this.InitializeComponent();
-            runtimeInfo = RuntimeInfo.Instance;
-            TestRepository t = runtimeInfo.TestRepos;
-            List<User> users = t.GetUsers();
-            
-            foreach(Wishlist w in users[0].getMyWishlists())
+            Runtime = RuntimeInfo.Instance;
+            List<User> users = Runtime.TestRepos.GetUsers();
+            User user = users.FirstOrDefault(u => u.UserId == Runtime.LoggedInUserId);
+
+            foreach (Wishlist w in user.getMyWishlists())
             {
                 MyWishlists.Add(w);
             }
@@ -45,8 +45,6 @@ namespace WishList
             myWishlists.DataContext = MyWishlists;
 
         }
-
-
 
         //NAVIGATION FUNCTIONS
         //OnClick NAVIGATION

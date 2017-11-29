@@ -10,7 +10,9 @@ namespace WishList.Controllers
     public sealed class RuntimeInfo
     {
         private static readonly RuntimeInfo _instance = new RuntimeInfo();
+        public int LoggedInUserId { get; set; }
         public TestRepository TestRepos { get; set; }
+        
 
         public static RuntimeInfo Instance {
             get { return _instance; }

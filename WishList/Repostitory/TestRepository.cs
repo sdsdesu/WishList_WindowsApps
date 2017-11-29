@@ -20,6 +20,10 @@ namespace WishList.Repostitory
             User UserTwo = new User("Sander", "De Sutter", "Sander.desutter@hotmail.com");
             User UserThree = new User("Victor", "Van Weyenberg", "Vic.VW@hotmail.com");
 
+            UserOne.UserId = 1;
+            UserTwo.UserId = 2;
+            UserThree.UserId = 3;
+
             UserOne.addContact(UserThree);
             UserTwo.addContact(UserOne);
             UserTwo.addContact(UserThree);
