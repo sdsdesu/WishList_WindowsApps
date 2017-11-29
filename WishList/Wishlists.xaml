@@ -46,7 +46,6 @@
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
-
                     </ListBox>
                     <Grid HorizontalAlignment="Center">
                         <Grid.ColumnDefinitions >
@@ -58,9 +57,9 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <Button Grid.Row="0" Grid.Column="0" Margin="10" Width="100" HorizontalAlignment="Center" Content="Add"  />
-                        <Button Grid.Row="0" Grid.Column="1" Margin="10" Width="100" HorizontalAlignment="Center" Content="View"  />
-                        <Button Grid.Row="0" Grid.Column="2" Margin="10" Width="100" HorizontalAlignment="Center" Content="Remove"  />
+                        <Button Content="Add" Click="AddWishlistButton_Click"  Grid.Row="0" Grid.Column="0" Margin="10" Width="100" HorizontalAlignment="Center"/>
+                        <Button Content="View" Click="ViewWishlistButton_Click" Grid.Row="0" Grid.Column="1" Margin="10" Width="100" HorizontalAlignment="Center"/>
+                        <Button Content="Remove" Click="RemoveWishlist_Click"  Grid.Row="0" Grid.Column="2" Margin="10" Width="100" HorizontalAlignment="Center"/>
                     </Grid>
                 </StackPanel>
             </StackPanel>

@@ -7,7 +7,7 @@ using WishList.Models;
 
 namespace WishList.Repostitory
 {
-    class TestRepository
+    public class TestRepository
     {
         public static List<User> Users { get; set; }
 
