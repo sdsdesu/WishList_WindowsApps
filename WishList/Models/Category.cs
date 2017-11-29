@@ -17,8 +17,6 @@ namespace WishList.Models
         Tech,
         Tools,
         Toys
-
-
     }
 
 }

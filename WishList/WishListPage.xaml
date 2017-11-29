@@ -14,22 +14,27 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="name" TextWrapping="Wrap" Text="TextBlock"/>
+            <TextBlock x:Name="Title" TextWrapping="Wrap" Text="My Wishlists" Style="{StaticResource TitleTextBlockStyle}"/>
             <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="TextBlock" Grid.Column="2" HorizontalAlignment="Right"/>
         </Grid>
         <StackPanel>
-            <ListBox x:Name="listBox" Height="126"/>
-            <Grid>
+            <ListBox x:Name="myWishlists" Height="500" Width="500px" Margin="5">
+                
+                
+            </ListBox>
+            <Grid HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="250" />
+                    <ColumnDefinition Width="250"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Button Grid.Row="0" Content="Iets toevoegen"  />
-                <Button Grid.Row="1" Content="Bekijken"  />
+                <Button Grid.Row="0" Grid.Column="0" Margin="10" HorizontalAlignment="Center" Content="Iets toevoegen"  />
+                <Button Grid.Row="0" Grid.Column="1" Margin="10" HorizontalAlignment="Center" Content="Bekijken"  />
             </Grid>
         </StackPanel>
-
-
 
     </StackPanel>
 
