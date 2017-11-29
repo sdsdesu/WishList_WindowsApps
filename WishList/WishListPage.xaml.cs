@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -26,6 +27,7 @@ namespace WishList
     {
         RuntimeInfo Runtime;
         Wishlist SelectedWishlist { get; set; }
+        public ObservableCollection<Item> WishlistItems = new ObservableCollection<Item>();
 
         public WishListPage()
         {
@@ -33,6 +35,12 @@ namespace WishList
             Runtime = RuntimeInfo.Instance;
             SelectedWishlist = Runtime.AppController.SelectedWishlist;
             Title.Text = SelectedWishlist.Title;
+
+            foreach (Item i in SelectedWishlist.Items)
+            {
+                WishlistItems.Add(i);
+            }
+            myWishlistItems.DataContext = WishlistItems;
         }
 
 
