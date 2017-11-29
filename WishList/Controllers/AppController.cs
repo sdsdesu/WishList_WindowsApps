@@ -41,6 +41,7 @@ namespace WishList.Controllers
 
         
         //Function 2)AddWishlist - add wishlist to currently logged in user widouth users or items
+        /*
         public void addWishlist(string title, Event occasion) {
             Wishlist w = new Wishlist(title, occasion);
         }
@@ -75,7 +76,7 @@ namespace WishList.Controllers
                 w.addItem(i);
             }
         }
-
+        */
 
         //Function 6)GetOwnWishlist
 

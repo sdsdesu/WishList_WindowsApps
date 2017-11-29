@@ -27,22 +27,10 @@ namespace WishList
             this.InitializeComponent();
         }
 
-        //NAVIGATION FUNCTIONS
-        public void SideBarButton_Click(object sender, RoutedEventArgs e)
+        public void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            SplitNav.IsPaneOpen = !SplitNav.IsPaneOpen;
+            Frame.Navigate(typeof(WishListPage));
         }
-        public void ButtonMyWishlists_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(Login));
-        }
-        public void ButtonOtherWishlists_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(Lists));
-        }
-        public void ButtonSocial_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(ListAanmaken));
-        }
+
     }
 }
