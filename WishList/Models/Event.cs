@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace WishList.Models
 {
     //Can't you just give the WishList a Description and a deathline;  Wishlist.Title = event.Name   
-    class Event
+    public class Event
     {
         //Variable declaration with getters and setters
-        private int EventId { get; set; }               //Id of event
-        private string Name { get; set; }               //name of event
-        private string Description { get; set; }        //text description of evente
-        private DateTime Deadline { get; set; }         //deadline of event, when it takes place, maybe allow for days before so everything is in order before the deadline
+        public int EventId { get; set; }               //Id of event
+        public string Name { get; set; }               //name of event
+        public string Description { get; set; }        //text description of evente
+        public DateTime Deadline { get; set; }         //deadline of event, when it takes place, maybe allow for days before so everything is in order before the deadline
 
         //Constructors
         public Event(string name, string description, DateTime deadline)

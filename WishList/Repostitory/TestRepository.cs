@@ -7,15 +7,22 @@ using WishList.Models;
 
 namespace WishList.Repostitory
 {
-    class TestRepository
+    public class TestRepository
     {
         public static List<User> Users { get; set; }
 
         public TestRepository()
         {
+
+            Users = new List<User>();
+
             User UserOne = new User("Timo", "Spanhove", "timo.spanhove@hotmail.com");
             User UserTwo = new User("Sander", "De Sutter", "Sander.desutter@hotmail.com");
             User UserThree = new User("Victor", "Van Weyenberg", "Vic.VW@hotmail.com");
+
+            UserOne.UserId = 1;
+            UserTwo.UserId = 2;
+            UserThree.UserId = 3;
 
             UserOne.addContact(UserThree);
             UserTwo.addContact(UserOne);

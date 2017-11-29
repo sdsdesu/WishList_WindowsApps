@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace WishList.Models
 {
-    class Wishlist
+    public class Wishlist
     {
         //Variable declaration with getters and setters
-        private int WishlistId { get; set; }                //id of whislist
-        private string Title { get; set; }                   //name of wishlist
-        private User Owner { get; set; }                    //user that made the wishlist
-        private DateTime Deadline { get; set; }         //deadline of event, when it takes place, maybe allow for days before so everything is in order before the deadline
-        private List<User> Buyers{ get; set; }              //Users invited to wishlists
-        private List<Item> Items { get; set; }
+        public int WishlistId { get; set; }                //id of whislist
+        public string Title { get; set; }                   //name of wishlist
+        public User Owner { get; set; }                    //user that made the wishlist
+        public DateTime Deadline { get; set; }         //deadline of event, when it takes place, maybe allow for days before so everything is in order before the deadline
+        public List<User> Buyers{ get; set; }              //Users invited to wishlists
+        public List<Item> Items { get; set; }
 
         //buyers can see who bought wich gift, owner can only see if a gift is bought or not
         //when deadline expires buyers lose access to the wishlist, but not the owner, owner gets to see after deadline who bought what (maybe leave some time between to not spoil things)
@@ -25,6 +25,8 @@ namespace WishList.Models
         public Wishlist(string title)
         {
             Title = title;
+            Buyers = new List<User>();
+            Items = new List<Item>();
         }
         public Wishlist(string title, DateTime deadline) : this(title)
         {

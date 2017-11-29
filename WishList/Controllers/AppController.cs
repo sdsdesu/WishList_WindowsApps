@@ -41,22 +41,22 @@ namespace WishList.Controllers
 
         
         //Function 2)AddWishlist - add wishlist to currently logged in user widouth users or items
-        /*
-        public void addWishlist(string title, Event occasion) {
-            Wishlist w = new Wishlist(title, occasion);
+        
+        public void addWishlist(string title, DateTime deadline) {
+            Wishlist w = new Wishlist(title, deadline);
         }
         //Function 3)AddWishlist - add wishlist to currently logged in user with users including contacts you wish to add
-        public void addWishlist(string title, Event occasion, List<User> buyers)
+        public void addWishlist(string title, DateTime deadline, List<User> buyers)
         {
-            Wishlist w = new Wishlist(title, occasion);
+            Wishlist w = new Wishlist(title, deadline);
             foreach (User b in buyers) {
                 w.addBuyer(b);
             }
         }
         //Function 4)AddWishlist - add wishlist to currently logged in user widouth users but with items
-        public void addWishlist(string title, Event occasion, List<Item> items)
+        public void addWishlist(string title, DateTime deadline, List<Item> items)
         {
-            Wishlist w = new Wishlist(title, occasion);
+            Wishlist w = new Wishlist(title, deadline);
             foreach (Item i in items)
             {
                 w.addItem(i);
@@ -64,9 +64,9 @@ namespace WishList.Controllers
 
         }
         //Function 5)AddWishlist - add wishlist to currently logged in user with users but with items
-        public void addWishlist(string title, Event occasion, List<User> buyers, List<Item> items)
+        public void addWishlist(string title, DateTime deadline, List<User> buyers, List<Item> items)
         {
-            Wishlist w = new Wishlist(title, occasion);
+            Wishlist w = new Wishlist(title, deadline);
             foreach (User b in buyers)
             {
                 w.addBuyer(b);
@@ -76,7 +76,7 @@ namespace WishList.Controllers
                 w.addItem(i);
             }
         }
-        */
+        
 
         //Function 6)GetOwnWishlist
 

@@ -97,11 +97,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AppController.cs" />
+    <Compile Include="Controllers\RuntimeInfo.cs" />
     <Compile Include="ListAanmaken.xaml.cs">
       <DependentUpon>ListAanmaken.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Lists.xaml.cs">
-      <DependentUpon>Lists.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -124,6 +122,9 @@
     </Compile>
     <Compile Include="WishListPage.xaml.cs">
       <DependentUpon>WishListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Wishlists.xaml.cs">
+      <DependentUpon>Wishlists.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -152,10 +153,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lists.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -173,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WishListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Wishlists.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
