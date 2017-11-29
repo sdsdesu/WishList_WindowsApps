@@ -6,34 +6,55 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <SplitView x:Name="SplitNav" IsPaneOpen="False" DisplayMode="CompactOverlay" CompactPaneLength="40"  OpenPaneLength="270">
+        <SplitView.Pane>
+            <StackPanel Background="Gray">
+                <Button x:Name="NavButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Width="40" Height="50" Background="Transparent" Click="SideBarButton_Click"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="MenuButton1" FontFamily="Segoe MDL2 Assets" Content="&#xE825;" Width="40" Height="50" Background="Transparent" Click="ButtonMyWishlists_Click"/>
+                    <TextBlock Text="My Wishlists" FontSize="18" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="MenuButton2" FontFamily="Segoe MDL2 Assets" Content="&#xE10F;" Width="40" Height="50" Background="Transparent" Click="ButtonOtherWishlists_Click"/>
+                    <TextBlock Text="Participating Wishlists" FontSize="18" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE1D6;" Width="40" Height="50" Background="Transparent" Click="ButtonSocial_Click"/>
+                    <TextBlock Text="Social" FontSize="18" VerticalAlignment="Center" />
+                </StackPanel>
+            </StackPanel>
+        </SplitView.Pane>
+        <SplitView.Content>
+            <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="Title" TextWrapping="Wrap" Text="My Wishlists" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="3" Margin="5,5,5,5"/>
+                </Grid>
+                <StackPanel>
+                    <ListBox x:Name="myWishlists" Height="500px" Margin="5,5,5,5">
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock x:Name="Title" TextWrapping="Wrap" Text="My Wishlists" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="3" Margin="5,5,5,5"/>
-        </Grid>
-        <StackPanel>
-            <ListBox x:Name="myWishlists" Height="500px" Margin="5,5,5,5">
-                
-            </ListBox>
-            <Grid HorizontalAlignment="Center">
-                <Grid.ColumnDefinitions >
-                    <ColumnDefinition Width="175" />
-                    <ColumnDefinition Width="175"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Button Grid.Row="0" Grid.Column="0" Margin="10" HorizontalAlignment="Center" Content="Add Wishlist"  />
-                <Button Grid.Row="0" Grid.Column="1" Margin="10" HorizontalAlignment="Center" Content="View Wishlist"  />
-            </Grid>
-        </StackPanel>
-
-    </StackPanel>
+                    </ListBox>
+                    <Grid HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions >
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Button Grid.Row="0" Grid.Column="0" Margin="10" Width="100" HorizontalAlignment="Center" Content="Add"  />
+                        <Button Grid.Row="0" Grid.Column="1" Margin="10" Width="100" HorizontalAlignment="Center" Content="View"  />
+                        <Button Grid.Row="0" Grid.Column="2" Margin="10" Width="100" HorizontalAlignment="Center" Content="Remove"  />
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+        </SplitView.Content>
+    </SplitView>
 
 </Page>
