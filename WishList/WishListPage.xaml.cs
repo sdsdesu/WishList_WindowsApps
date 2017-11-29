@@ -39,11 +39,11 @@ namespace WishList
         }
         public void ButtonOtherWishlists_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Lists));
+            Frame.Navigate(typeof(Wishlists));
         }
         public void ButtonSocial_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(ListAanmaken));
+            Frame.Navigate(typeof(WishListPage));
         }
     }
 }

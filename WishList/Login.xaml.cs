@@ -29,7 +29,7 @@ namespace WishList
 
         public void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(WishListPage));
+            Frame.Navigate(typeof(Wishlists));
         }
 
     }

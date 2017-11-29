@@ -12,7 +12,6 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using WishList.Repostitory;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -21,20 +20,13 @@ namespace WishList
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Lists : Page
+    public sealed partial class Wishlists : Page
     {
-        public Lists()
+        public Wishlists()
         {
             this.InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            TestRepository tr = new TestRepository();
-            this.DataContext = tr.GetUsers();
-
-        }
 
         //NAVIGATION FUNCTIONS
         public void SideBarButton_Click(object sender, RoutedEventArgs e)
@@ -47,11 +39,13 @@ namespace WishList
         }
         public void ButtonOtherWishlists_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Lists));
+            Frame.Navigate(typeof(Wishlists));
         }
         public void ButtonSocial_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(ListAanmaken));
+            Frame.Navigate(typeof(WishListPage));
         }
     }
+
+
 }
