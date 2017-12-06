@@ -119,6 +119,9 @@
     <Compile Include="UCNavControl.xaml.cs">
       <DependentUpon>UCNavControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WishList.xaml.cs">
+      <DependentUpon>WishList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WishListPage.xaml.cs">
       <DependentUpon>WishListPage.xaml</DependentUpon>
     </Compile>
@@ -165,6 +168,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UCNavControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WishList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
