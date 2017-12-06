@@ -33,7 +33,7 @@ namespace WishList
         }
         public void ButtonMyWishlists_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(typeof(Login));
+            Frame.Navigate(typeof(Login));
         }
         public void ButtonOtherWishlists_Click(object sender, RoutedEventArgs e)
         {
