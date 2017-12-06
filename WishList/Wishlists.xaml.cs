@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Views;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -97,6 +98,15 @@ namespace WishList
         {
 
         }
+
+        private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e) {
+           // //eh? 
+           //this.Frame.Navigate(typeof(WishListPage));
+
+
+        }
+
+
     }
 
 
