@@ -48,7 +48,7 @@ namespace WishList
             Frame.Navigate(typeof(Wishlists));
         }
 
-        //NAVBAR FUNCTIONS
+        ////RIP
         //public void SideBarButton_Click(object sender, RoutedEventArgs e)
         //{
         //    SplitNav.IsPaneOpen = !SplitNav.IsPaneOpen;
