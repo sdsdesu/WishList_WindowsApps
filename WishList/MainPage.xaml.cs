@@ -27,7 +27,7 @@ namespace WishList
             this.InitializeComponent();
         }
 
-        //NAVIGATION FUNCTIONS
+        //THERE CAN ONLY BE ONE!
         public void SideBarButton_Click(object sender, RoutedEventArgs e) {
             SplitNav.IsPaneOpen = !SplitNav.IsPaneOpen;
         }

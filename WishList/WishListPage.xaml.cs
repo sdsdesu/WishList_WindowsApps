@@ -43,6 +43,11 @@ namespace WishList
             myWishlistItems.DataContext = WishlistItems;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
 
         ////NAVIGATION FUNCTIONS
         //public void SideBarButton_Click(object sender, RoutedEventArgs e)

@@ -53,6 +53,7 @@ namespace WishList
             if (myWishlists.SelectedItem != null)
             {
                 SelectedWishlist = (Wishlist) myWishlists.SelectedItem;
+                Buttons.Visibility = Visibility.Visible;
             }
         }
 
@@ -74,9 +75,10 @@ namespace WishList
         {
             Runtime.LoggedInUser.removeWishlist(SelectedWishlist);
             Frame.Navigate(typeof(Wishlists));
+            Buttons.Visibility = Visibility.Collapsed;
         }
 
-        ////NAVBAR NAVIGATION
+        ////RIP
         //public void SideBarButton_Click(object sender, RoutedEventArgs e)
         //{
         //    SplitNav.IsPaneOpen = !SplitNav.IsPaneOpen;
