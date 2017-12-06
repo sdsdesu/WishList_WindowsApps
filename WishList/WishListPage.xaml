@@ -35,21 +35,30 @@
                     <TextBlock x:Name="Title" TextWrapping="Wrap" Text="Insert name of wishlist here" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="3" Margin="5,5,5,5"/>
                 </Grid>
                 <StackPanel>
-                    <ListBox x:Name="myWishlists" Height="500px" Margin="5,5,5,5">
+                    <ListBox x:Name="myWishlistItems" ItemsSource="{Binding}" Height="500px" Margin="5,5,5,5">
+                        <ListBox.ItemTemplate >
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Margin="2" >
 
+                                    <TextBlock x:Name="wishlistTitle" Text="{Binding Name}" Margin="2" />
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
                     </ListBox>
                     <Grid HorizontalAlignment="Center">
                         <Grid.ColumnDefinitions >
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="100"/>
-
+                            <ColumnDefinition Width="110"/>
+                            <ColumnDefinition Width="110"/>
+                            <ColumnDefinition Width="110"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <Button Grid.Row="0" Grid.Column="0" Margin="10" Width="100" HorizontalAlignment="Center" Content="Add"  />
-                        <Button Grid.Row="0" Grid.Column="1" Margin="10" Width="100" HorizontalAlignment="Center" Content="Remove"  />
+                        <Button Grid.Row="0" Grid.Column="0" Margin="10" Width="110" HorizontalAlignment="Center" Content="Add Item"  />
+                        <Button Grid.Row="0" Grid.Column="1" Margin="10" Width="110" HorizontalAlignment="Center" Content="Add Buyer(s)"  />
+                        <Button Grid.Row="0" Grid.Column="2" Margin="10" Width="110" HorizontalAlignment="Center" Content="Remove"  />
                     </Grid>
                 </StackPanel>
             </StackPanel>

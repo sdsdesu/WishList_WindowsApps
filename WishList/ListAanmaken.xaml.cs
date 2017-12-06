@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using WishList.Controllers;
+using WishList.Models;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,12 +24,31 @@ namespace WishList
     /// </summary>
     public sealed partial class ListAanmaken : Page
     {
+
+        RuntimeInfo Runtime { get; set; }
+
         public ListAanmaken()
         {
             this.InitializeComponent();
+            Runtime = RuntimeInfo.Instance;
         }
 
         //NAVIGATION FUNCTIONS
+        //Onclick funtions
+        public void ButtonAdd_Click(object sender, RoutedEventArgs e)   //can only be clicked when given a 
+        {
+            //testcode hardcoded
+            Wishlist w = new Wishlist("LAN PARTY", new DateTime(2018, 2, 28));
+            Runtime.LoggedInUser.addWishlist(w);
+            //end testcode
+            Frame.Navigate(typeof(Wishlists));
+        }
+        public void ButtonBack_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Wishlists));
+        }
+
+        //NAVBAR FUNCTIONS
         public void SideBarButton_Click(object sender, RoutedEventArgs e)
         {
             SplitNav.IsPaneOpen = !SplitNav.IsPaneOpen;

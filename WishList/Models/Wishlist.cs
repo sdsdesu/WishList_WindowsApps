@@ -13,6 +13,7 @@ namespace WishList.Models
         public string Title { get; set; }                   //name of wishlist
         public User Owner { get; set; }                    //user that made the wishlist
         public DateTime Deadline { get; set; }         //deadline of event, when it takes place, maybe allow for days before so everything is in order before the deadline
+        public string DeadlineS { get; set; }
         public List<User> Buyers{ get; set; }              //Users invited to wishlists
         public List<Item> Items { get; set; }
 
@@ -31,6 +32,7 @@ namespace WishList.Models
         public Wishlist(string title, DateTime deadline) : this(title)
         {
             Deadline = deadline;
+            DeadlineS = deadline.ToString("ddd dd/MM/yyyy");
         }
 
 

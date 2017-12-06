@@ -29,6 +29,7 @@ namespace WishList
 
         public ObservableCollection<Wishlist> MyWishlists = new ObservableCollection<Wishlist>();
         RuntimeInfo Runtime;
+        public Wishlist SelectedWishlist { get; set; }
 
         public Wishlists()
         {
@@ -46,6 +47,14 @@ namespace WishList
 
         }
 
+        private void SelectionChanged_Wishlist(object sender, SelectionChangedEventArgs e)
+        {
+            if (myWishlists.SelectedItem != null)
+            {
+                SelectedWishlist = (Wishlist) myWishlists.SelectedItem;
+            }
+        }
+
         //NAVIGATION FUNCTIONS
         //OnClick NAVIGATION
         public void AddWishlistButton_Click(object sender, RoutedEventArgs e)
@@ -54,10 +63,15 @@ namespace WishList
         }
         public void ViewWishlistButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(WishListPage));
+            if (SelectedWishlist != null) {
+                Runtime.AppController.SelectedWishlist = SelectedWishlist;
+                Frame.Navigate(typeof(WishListPage));
+            }
+
         }
         public void RemoveWishlist_Click(object sender, RoutedEventArgs e)
         {
+            Runtime.LoggedInUser.removeWishlist(SelectedWishlist);
             Frame.Navigate(typeof(Wishlists));
         }
 
@@ -77,6 +91,11 @@ namespace WishList
         public void ButtonSocial_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(WishListPage));
+        }
+
+        private void myWishlists_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 
