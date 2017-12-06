@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using WislistDataCore.Models;
 
 namespace WislistDataCore
 {
@@ -29,6 +31,9 @@ namespace WislistDataCore
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddDbContext<WislistDataCoreContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("WislistDataCoreContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
