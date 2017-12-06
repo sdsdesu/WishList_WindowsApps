@@ -14,9 +14,10 @@
         <TextBlock />
         <TextBox />
         <TextBlock />
-        <TextBox />
+        <PasswordBox/>
         <TextBlock />
         <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="LoginButton_Click"/>
+        
     </StackPanel>
 
 
