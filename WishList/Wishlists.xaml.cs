@@ -75,23 +75,23 @@ namespace WishList
             Frame.Navigate(typeof(Wishlists));
         }
 
-        //NAVBAR NAVIGATION
-        public void SideBarButton_Click(object sender, RoutedEventArgs e)
-        {
-            SplitNav.IsPaneOpen = !SplitNav.IsPaneOpen;
-        }
-        public void ButtonMyWishlists_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(Login));
-        }
-        public void ButtonOtherWishlists_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(Wishlists));
-        }
-        public void ButtonSocial_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(WishListPage));
-        }
+        ////NAVBAR NAVIGATION
+        //public void SideBarButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    SplitNav.IsPaneOpen = !SplitNav.IsPaneOpen;
+        //}
+        //public void ButtonMyWishlists_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Frame.Navigate(typeof(Login));
+        //}
+        //public void ButtonOtherWishlists_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Frame.Navigate(typeof(Wishlists));
+        //}
+        //public void ButtonSocial_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Frame.Navigate(typeof(WishListPage));
+        //}
 
         private void myWishlists_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

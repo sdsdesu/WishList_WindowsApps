@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <SplitView x:Name="SplitNav" IsPaneOpen="False" DisplayMode="CompactOverlay" CompactPaneLength="40"  OpenPaneLength="270">
+    <!--<SplitView x:Name="SplitNav" IsPaneOpen="False" DisplayMode="CompactOverlay" CompactPaneLength="40"  OpenPaneLength="270">
         <SplitView.Pane>
             <StackPanel Background="Gray">
                 <Button x:Name="NavButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Width="40" Height="50" Background="Transparent" Click="SideBarButton_Click"/>
@@ -25,7 +25,7 @@
                 </StackPanel>
             </StackPanel>
         </SplitView.Pane>
-        <SplitView.Content>
+        <SplitView.Content>-->
             <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -65,7 +65,7 @@
                     </Grid>
                 </StackPanel>
             </StackPanel>
-        </SplitView.Content>
-    </SplitView>
+        <!--</SplitView.Content>
+    </SplitView>-->
 
 </Page>

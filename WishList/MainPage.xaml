@@ -27,9 +27,15 @@
         </SplitView.Pane>
         <SplitView.Content>
             <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                <Button x:Name="button" Content="committestbutton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                
+                
+                <!--<Button x:Name="button" Content="committestbutton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>-->
+               
+                    <Frame x:Name="MainFrame" />
+                
             </StackPanel>
         </SplitView.Content>
+        
     </SplitView>
     
 </Page>

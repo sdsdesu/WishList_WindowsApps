@@ -37,7 +37,7 @@ namespace WishList
         {
             Runtime.LoggedInUserId = 1;
             Runtime.LoggedInUser = Runtime.TestRepos.GetUsers().FirstOrDefault(u => u.UserId == 1);
-            Frame.Navigate(typeof(Wishlists));
+            Frame.Navigate(typeof(MainPage));
         }
 
     }
