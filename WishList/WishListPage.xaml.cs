@@ -49,7 +49,7 @@ namespace WishList
         }
 
 
-        ////RIP
+        //RIP
         //public void SideBarButton_Click(object sender, RoutedEventArgs e)
         //{
         //    SplitNav.IsPaneOpen = !SplitNav.IsPaneOpen;
