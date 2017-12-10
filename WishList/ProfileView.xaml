@@ -8,6 +8,19 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Image Source="/Images/testImage.png" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="0"/>
+        <TextBlock x:Name="username" HorizontalAlignment="Stretch" Margin="10,10,0,0" TextWrapping="Wrap" Text="username" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="1"  />
+        <TextBlock x:Name="email" HorizontalAlignment="Stretch" Margin="10,10,0,0" TextWrapping="Wrap" Text="Email: " VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Stretch" Margin="10,10,0,0" TextWrapping="Wrap" Text="Possible bio or maybe remove favorite gifts wishlist in navbar and put the items of said wishlist here" VerticalAlignment="Stretch" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
     </Grid>
 </Page>

@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using WishList.Controllers;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,9 +23,14 @@ namespace WishList
     /// </summary>
     public sealed partial class ProfileView : Page
     {
+        RuntimeInfo Runtime { get; set; }
+
         public ProfileView()
         {
             this.InitializeComponent();
+            Runtime = RuntimeInfo.Instance;
+            username.Text = Runtime.LoggedInUser.getFullName();
+            email.Text = "Email: " + Runtime.LoggedInUser.Email;
         }
     }
 }
