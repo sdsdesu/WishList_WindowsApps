@@ -96,18 +96,18 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Contacts.xaml.cs">
+    <Compile Include="Views\Social\Contacts.xaml.cs">
       <DependentUpon>Contacts.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\RuntimeInfo.cs" />
-    <Compile Include="ListAanmaken.xaml.cs">
+    <Compile Include="Views\OwnWishlists\ListAanmaken.xaml.cs">
       <DependentUpon>ListAanmaken.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Login.xaml.cs">
+    <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs" />
@@ -115,30 +115,30 @@
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Wishlist.cs" />
-    <Compile Include="NieweItem.xaml.cs">
+    <Compile Include="Views\OwnWishlists\NieweItem.xaml.cs">
       <DependentUpon>NieweItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Notifications.xaml.cs">
+    <Compile Include="Views\Social\Notifications.xaml.cs">
       <DependentUpon>Notifications.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProfileView.xaml.cs">
+    <Compile Include="Views\Profile\ProfileView.xaml.cs">
       <DependentUpon>ProfileView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repostitory\TestRepository.cs" />
-    <Compile Include="SocialView.xaml.cs">
+    <Compile Include="Views\Social\SocialView.xaml.cs">
       <DependentUpon>SocialView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCNavControl.xaml.cs">
       <DependentUpon>UCNavControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WishListPage.xaml.cs">
+    <Compile Include="Views\OwnWishlists\WishListPage.xaml.cs">
       <DependentUpon>WishListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Wishlists.xaml.cs">
+    <Compile Include="Views\OwnWishlists\Wishlists.xaml.cs">
       <DependentUpon>Wishlists.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WishlistsOthers.xaml.cs">
+    <Compile Include="Views\OtherWishlists\WishlistsOthers.xaml.cs">
       <DependentUpon>WishlistsOthers.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -165,35 +165,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Contacts.xaml">
+    <Page Include="Views\Social\Contacts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ListAanmaken.xaml">
+    <Page Include="Views\OwnWishlists\ListAanmaken.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Login.xaml">
+    <Page Include="Views\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="NieweItem.xaml">
+    <Page Include="Views\OwnWishlists\NieweItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Notifications.xaml">
+    <Page Include="Views\Social\Notifications.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ProfileView.xaml">
+    <Page Include="Views\Profile\ProfileView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SocialView.xaml">
+    <Page Include="Views\Social\SocialView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -201,15 +201,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WishListPage.xaml">
+    <Page Include="Views\OwnWishlists\WishListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Wishlists.xaml">
+    <Page Include="Views\OwnWishlists\Wishlists.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WishlistsOthers.xaml">
+    <Page Include="Views\OtherWishlists\WishlistsOthers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
