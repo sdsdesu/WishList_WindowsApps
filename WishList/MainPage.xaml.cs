@@ -32,17 +32,21 @@ namespace WishList
         public void SideBarButton_Click(object sender, RoutedEventArgs e) {
             SplitNav.IsPaneOpen = !SplitNav.IsPaneOpen;
         }
+        public void ButtonMyProfile_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ProfileView));
+        }
         public void ButtonMyWishlists_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Login));
+            Frame.Navigate(typeof(Wishlists));
         }
         public void ButtonOtherWishlists_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(typeof(Wishlists));
+            MainFrame.Navigate(typeof(WishlistsOthers));
         }
         public void ButtonSocial_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(typeof(ListAanmaken));
+            MainFrame.Navigate(typeof(SocialView));
         }
 
     }

@@ -39,13 +39,13 @@ namespace WishList
         private void HandleCheck(object sender, RoutedEventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-            checkboxinfo.Text = "Enkel deelnemers toevoegen via uitnodeging.";
+            checkboxinfo.Text = "Enkel deelname via uitnodeging.";
         }
 
         private void HandleUnchecked(object sender, RoutedEventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-            checkboxinfo.Text = "Vrienden kunnen zelf vragen om deel te nemen aan wishlist.";
+            checkboxinfo.Text = "Vrienden kunnen deelname aanvragen.";
 
         }
 
@@ -54,9 +54,10 @@ namespace WishList
         //Onclick funtions
         public void ButtonAdd_Click(object sender, RoutedEventArgs e)   //can only be clicked when given a 
         {
-            //testcode hardcoded
-            Wishlist w = new Wishlist(Runtime.LoggedInUser, "LAN PARTY", "get together" ,new DateTime(2018, 2, 28));
-            w.IsOpen = true;
+            
+            //Create wishlist for user and add to the logged in user, appcontroller connects to database and adds it there as well
+            Wishlist w = new Wishlist(Runtime.LoggedInUser, Namelist.Text, NameOccasion.Text, eventDatePicker.Date.UtcDateTime);
+            w.IsOpen = checkboxPublic.IsChecked.Value;
             AppController.addWishlist(w);
             //end testcode
             Frame.Navigate(typeof(Wishlists));

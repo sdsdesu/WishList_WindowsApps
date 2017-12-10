@@ -53,7 +53,8 @@ namespace WishList
             if (myWishlists.SelectedItem != null)
             {
                 SelectedWishlist = (Wishlist) myWishlists.SelectedItem;
-                Buttons.Visibility = Visibility.Visible;
+                ButtonView.Visibility = Visibility.Visible;
+                ButtonRemove.Visibility = Visibility.Visible;
             }
         }
 

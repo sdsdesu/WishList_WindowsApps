@@ -114,8 +114,14 @@
     <Compile Include="NieweItem.xaml.cs">
       <DependentUpon>NieweItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProfileView.xaml.cs">
+      <DependentUpon>ProfileView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repostitory\TestRepository.cs" />
+    <Compile Include="SocialView.xaml.cs">
+      <DependentUpon>SocialView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UCNavControl.xaml.cs">
       <DependentUpon>UCNavControl.xaml</DependentUpon>
     </Compile>
@@ -164,6 +170,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="NieweItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProfileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SocialView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
