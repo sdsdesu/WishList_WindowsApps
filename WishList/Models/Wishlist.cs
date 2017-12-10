@@ -44,7 +44,7 @@ namespace WishList.Models
         //Function 1)Add Event
         public void addDeadline(DateTime deadline) {
             Deadline = Deadline;
-            DeadlineS = deadline.ToString("ddd dd/MM/yyyy");
+            DeadlineS = "Deadline: " + deadline.ToString("ddd dd/MM/yyyy");
         }
 
         //Function 2)AddBuyer

@@ -5,9 +5,26 @@
     xmlns:local="using:WishList"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:src="using:WishList.Models"
     mc:Ignorable="d">
 
-
+    <Page.Resources>
+        <!--  brief information template  -->
+        <DataTemplate x:Key="ItemView" x:DataType="src:Item">
+            <StackPanel Width="Auto" HorizontalAlignment="Stretch">
+                <TextBlock Margin="12, 15, 12, 0" FontSize="18" Text="{x:Bind Path=Name, Mode=OneWay}" />
+            </StackPanel>
+        </DataTemplate>
+        <!--  details expand template  -->
+        <DataTemplate x:Key="SelectedItemView" x:DataType="src:Item">
+            <StackPanel Width="Auto" HorizontalAlignment="Stretch">
+                <TextBlock Margin="12, 15, 12, 0" FontSize="18" Text="{x:Bind Path=Name, Mode=OneWay}" />
+                <StackPanel>
+                    <TextBlock Margin="12, 15, 12, 0" Text="{x:Bind Path=Category, Mode=OneWay}" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
 
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid>
@@ -19,15 +36,12 @@
             <TextBlock x:Name="Title" TextWrapping="Wrap" Text="Insert name of wishlist here" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="3" Margin="5,5,5,5"/>
         </Grid>
         <StackPanel>
-            <ListBox x:Name="myWishlistItems" SelectionChanged="SelectionChanged_WishlistItem" ItemsSource="{Binding}" Margin="5,5,5,5">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal" Margin="2" >
-                            <TextBlock x:Name="wishlistTitle" Text="{Binding Name}" Margin="2" />
-                        </StackPanel>
-
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
+            <ListBox x:Name="myWishlistItems" ItemTemplate="{StaticResource ItemView}" SelectionChanged="SelectionChanged_WishlistItem" ItemsSource="{Binding}" Margin="5,5,5,5">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
             </ListBox>
             <Grid HorizontalAlignment="Center">
                 <Grid.ColumnDefinitions >

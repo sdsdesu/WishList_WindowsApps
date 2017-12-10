@@ -19,6 +19,7 @@ namespace WishList.Models
         public List<Wishlist> OthersWishlists { get; set; }//Wishlists currently participating in
         public Wishlist Favorites { get; set; }            //Single wishlist containing gift that fit in any occasion, like favorite flowers, choclate, candy, wine, giftcards of specific stores, favorite authors for books...
 
+        //STill needs image added once db in order
 
         //Constructors
         public User(string firstname, string lastname, string email)
@@ -31,7 +32,6 @@ namespace WishList.Models
             Notifications = new List<Message>();
             MyWishlists = new List<Wishlist>();
             OthersWishlists = new List<Wishlist>();
-            
         }
 
         //Functions

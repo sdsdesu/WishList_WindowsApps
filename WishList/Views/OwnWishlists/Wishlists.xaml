@@ -10,16 +10,15 @@
 
     <Page.Resources>
         <!--  brief information template  -->
-        <DataTemplate x:Key="ItemTemplate" x:DataType="src:Wishlist">
+        <DataTemplate x:Key="ItemView" x:DataType="src:Wishlist">
             <StackPanel Width="Auto" HorizontalAlignment="Stretch">
-                <TextBlock Margin="12, 15, 12, 0" FontSize="18.667" Text="{x:Bind Path=Title, Mode=OneWay}" />
+                <TextBlock Margin="12, 15, 12, 0" FontSize="18" Text="{x:Bind Path=Title, Mode=OneWay}" />
             </StackPanel>
         </DataTemplate>
         <!--  details expand template  -->
-        <DataTemplate x:Key="SelectedTemplate" x:DataType="src:Wishlist">
+        <DataTemplate x:Key="SelectedItemView" x:DataType="src:Wishlist">
             <StackPanel Width="Auto" HorizontalAlignment="Stretch">
-                <TextBlock Margin="12, 15, 12, 0" FontSize="18.667" Text="{x:Bind Path=Title, Mode=OneWay}" />
-
+                <TextBlock Margin="12, 15, 12, 0" FontSize="18" Text="{x:Bind Path=Title, Mode=OneWay}" />
                 <StackPanel>
                     <TextBlock Margin="12, 15, 12, 0" Text="{x:Bind Path=DeadlineS, Mode=OneWay}" />
                 </StackPanel>
@@ -37,25 +36,12 @@
             <TextBlock x:Name="Title" TextWrapping="Wrap" Text="My Wishlists" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="3" Margin="5,5,5,5"/>
         </Grid>
         <StackPanel >
-            <ListBox x:Name="myWishlists" ItemTemplate="{StaticResource ItemTemplate}" ItemsSource="{Binding}" SelectionChanged="SelectionChanged_Wishlist" Margin="5,5,5,5"  ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <ListBox x:Name="myWishlists" ItemTemplate="{StaticResource ItemView}" ItemsSource="{Binding}" SelectionChanged="SelectionChanged_Wishlist" Margin="5,5,5,5"  ScrollViewer.VerticalScrollBarVisibility="Visible">
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                     </Style>
                 </ListBox.ItemContainerStyle>
-                <!--
-                <ListBox.ItemTemplate >
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal" Margin="2" Tapped="StackPanel_Tapped" >
-
-                            <TextBlock x:Name="wishlistTitle" Text="{Binding Title}" Margin="2" />
-                            <TextBlock  Text=" Deadline: " Margin="2" />
-                            <TextBlock x:Name="wishlistDeadline" Text="{Binding DeadlineS}" Margin="2" />
-
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-                -->
             </ListBox>
             <Grid HorizontalAlignment="Center" x:Name="Buttons">
                 <Grid.ColumnDefinitions >

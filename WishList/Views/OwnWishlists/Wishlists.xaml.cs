@@ -42,6 +42,8 @@ namespace WishList
             myWishlists.Height = Runtime.ScreenHeight-150;
             myWishlists.Width = Runtime.ScreenWidth;
 
+
+            //ADD filter to only show wishlist with deadline after current date, ordered by date
             foreach (Wishlist w in user.getMyWishlists())
             {
                 MyWishlists.Add(w);
@@ -68,11 +70,11 @@ namespace WishList
                 //get unselected item container
                 var unselectedItem = listBox.ContainerFromItem(unselectedPerson) as ListBoxItem;
                 //set ContentTemplate
-                unselectedItem.ContentTemplate = (DataTemplate)this.Resources["ItemTemplate"];
+                unselectedItem.ContentTemplate = (DataTemplate)this.Resources["ItemView"];
             }
             //get selected item container
             var selectedItem = listBox.ContainerFromItem(listBox.SelectedItem) as ListBoxItem;
-            selectedItem.ContentTemplate = (DataTemplate)this.Resources["SelectedTemplate"];
+            selectedItem.ContentTemplate = (DataTemplate)this.Resources["SelectedItemView"];
         }
 
         //NAVIGATION FUNCTIONS
@@ -87,7 +89,6 @@ namespace WishList
                 Runtime.AppController.SelectedWishlist = SelectedWishlist;
                 Frame.Navigate(typeof(WishListPage));
             }
-
         }
         public void RemoveWishlist_Click(object sender, RoutedEventArgs e)
         {
@@ -96,23 +97,6 @@ namespace WishList
             Buttons.Visibility = Visibility.Collapsed;
         }
 
-        //RIP
-        //public void SideBarButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    SplitNav.IsPaneOpen = !SplitNav.IsPaneOpen;
-        //}
-        //public void ButtonMyWishlists_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Frame.Navigate(typeof(Login));
-        //}
-        //public void ButtonOtherWishlists_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Frame.Navigate(typeof(Wishlists));
-        //}
-        //public void ButtonSocial_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Frame.Navigate(typeof(WishListPage));
-        //}
 
         private void myWishlists_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -122,8 +106,6 @@ namespace WishList
         private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e) {
            // //eh? 
            //this.Frame.Navigate(typeof(WishListPage));
-
-
         }
 
 
