@@ -59,6 +59,20 @@ namespace WishList
                 ButtonView.Visibility = Visibility.Visible;
                 ButtonRemove.Visibility = Visibility.Visible;
             }
+
+            var listBox = sender as ListBox;
+            //get unselected item
+            var unselectedPerson = e.RemovedItems.FirstOrDefault() as Wishlist;
+            if (unselectedPerson != null)
+            {
+                //get unselected item container
+                var unselectedItem = listBox.ContainerFromItem(unselectedPerson) as ListBoxItem;
+                //set ContentTemplate
+                unselectedItem.ContentTemplate = (DataTemplate)this.Resources["ItemTemplate"];
+            }
+            //get selected item container
+            var selectedItem = listBox.ContainerFromItem(listBox.SelectedItem) as ListBoxItem;
+            selectedItem.ContentTemplate = (DataTemplate)this.Resources["SelectedTemplate"];
         }
 
         //NAVIGATION FUNCTIONS

@@ -27,6 +27,7 @@ namespace WishList
     {
         RuntimeInfo Runtime;
         Wishlist SelectedWishlist { get; set; }
+        Item SelectedWishlistItem { get; set; }
         public ObservableCollection<Item> WishlistItems = new ObservableCollection<Item>();
 
         public WishListPage()
@@ -46,6 +47,15 @@ namespace WishList
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void SelectionChanged_WishlistItem(object sender, SelectionChangedEventArgs e)
+        {
+            if (myWishlistItems.SelectedItem != null)
+            {
+                SelectedWishlistItem = (Item)myWishlistItems.SelectedItem;
+                ButtonRemove.Visibility = Visibility.Visible;
+            }
         }
 
 
