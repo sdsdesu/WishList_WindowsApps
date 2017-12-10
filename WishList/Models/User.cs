@@ -14,6 +14,7 @@ namespace WishList.Models
         public string Lastname { get; set; }
         public string Email { get; set; }                  //email of user, can be used to add user to contacts/friendlist
         public List<User> Contacts { get; set; }           //list of people the user can add to his wishlist (get from phone contact list or facebook account)
+        public List<Message> Notifications { get; set; }
         public List<Wishlist> MyWishlists { get; set; }    //Wishlists of the user - functionality(wishlist stays for owner even after deadline, and all the buyers become visible to him)
         public List<Wishlist> OthersWishlists { get; set; }//Wishlists currently participating in
         public Wishlist Favorites { get; set; }            //Single wishlist containing gift that fit in any occasion, like favorite flowers, choclate, candy, wine, giftcards of specific stores, favorite authors for books...
@@ -27,9 +28,10 @@ namespace WishList.Models
             Lastname = lastname;
             Email = email;
             Contacts = new List<User>();
+            Notifications = new List<Message>();
             MyWishlists = new List<Wishlist>();
             OthersWishlists = new List<Wishlist>();
-
+            
         }
 
         //Functions
@@ -43,6 +45,10 @@ namespace WishList.Models
         public void addContact(User contact) {
             //AppController gets given email string, looks in database for user retrieves it and calls this function
             Contacts.Add(contact);
+        }
+
+        public void addNotification(Message m) {
+            Notifications.Add(m);
         }
 
         //Function 3)AddWishlist

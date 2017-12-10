@@ -34,11 +34,11 @@ namespace WishList
         }
         public void ButtonMyProfile_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(ProfileView));
+            MainFrame.Navigate(typeof(ProfileView));
         }
         public void ButtonMyWishlists_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Wishlists));
+            MainFrame.Navigate(typeof(Wishlists));
         }
         public void ButtonOtherWishlists_Click(object sender, RoutedEventArgs e)
         {

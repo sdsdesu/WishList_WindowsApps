@@ -24,6 +24,7 @@ namespace WishList
     {
         public WishlistsOthers()
         {
+            //wishlist divided in 2 upper section for participating wishlists, lower section for wishlists of friends which can be requested to join
             this.InitializeComponent();
         }
     }

@@ -25,7 +25,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE716;" Width="50" Height="50" Background="Transparent" Click="ButtonSocial_Click"/>
-                    <TextBlock Text="Contacts" FontSize="18" VerticalAlignment="Center" />
+                    <TextBlock Text="Social" FontSize="18" VerticalAlignment="Center" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="MenuButton4" FontFamily="Segoe MDL2 Assets" Content="&#xE728;" Width="50" Height="50" Background="Transparent" Click="ButtonOtherWishlists_Click"/>
@@ -38,7 +38,7 @@
                 
                 <!--<Button x:Name="button" Content="committestbutton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>-->
                
-                    <Frame x:Name="MainFrame" />
+                    <Frame x:Name="MainFrame"/>
                 
             </StackPanel>
         </SplitView.Content>
