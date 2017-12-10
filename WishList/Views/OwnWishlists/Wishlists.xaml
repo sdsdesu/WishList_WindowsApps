@@ -12,28 +12,16 @@
         <!--  brief information template  -->
         <DataTemplate x:Key="ItemTemplate" x:DataType="src:Wishlist">
             <StackPanel Width="Auto" HorizontalAlignment="Stretch">
-                <TextBlock Margin="12, 15, 12, 0"
-                       FontSize="18.667"
-                       Text="{x:Bind Path=Title, Mode=OneWay}" />
-                <TextBox Margin="12, 12, 12, 0"
-                     HorizontalAlignment="Stretch"
-                     FontSize="18.667"
-                     Text="{x:Bind Path=Title, Mode=TwoWay}" />
+                <TextBlock Margin="12, 15, 12, 0" FontSize="18.667" Text="{x:Bind Path=Title, Mode=OneWay}" />
             </StackPanel>
         </DataTemplate>
         <!--  details expand template  -->
         <DataTemplate x:Key="SelectedTemplate" x:DataType="src:Wishlist">
             <StackPanel Width="Auto" HorizontalAlignment="Stretch">
-                <TextBlock Margin="12, 15, 12, 0"
-                       FontSize="18.667"
-                       Text="{x:Bind Path=Title, Mode=OneWay}" />
-                <TextBox Margin="12, 12, 12, 0"
-                     HorizontalAlignment="Stretch"
-                     FontSize="18.667"
-                     Text="{x:Bind Path=Title, Mode=TwoWay}" />
+                <TextBlock Margin="12, 15, 12, 0" FontSize="18.667" Text="{x:Bind Path=Title, Mode=OneWay}" />
+
                 <StackPanel>
-                    <TextBlock Margin="12, 15, 12, 0" Text="Deadline: " />
-                    <TextBox Margin="12, 5, 12, 0" Text="{x:Bind Path=DeadlineS, Mode=OneWay}" />
+                    <TextBlock Margin="12, 15, 12, 0" Text="{x:Bind Path=DeadlineS, Mode=OneWay}" />
                 </StackPanel>
             </StackPanel>
         </DataTemplate>

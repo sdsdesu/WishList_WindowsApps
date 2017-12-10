@@ -35,7 +35,7 @@ namespace WishList.Models
         {
             Owner = owner;
             Deadline = deadline;
-            DeadlineS = deadline.ToString("ddd dd/MM/yyyy");
+            DeadlineS = "Deadline: " + deadline.ToString("ddd dd/MM/yyyy");
         }
 
 
