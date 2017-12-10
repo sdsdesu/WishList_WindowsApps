@@ -39,6 +39,9 @@ namespace WishList
             List<User> users = Runtime.TestRepos.GetUsers();
             User user = users.FirstOrDefault(u => u.UserId == Runtime.LoggedInUserId);
 
+            myWishlists.Height = Runtime.ScreenHeight-150;
+            myWishlists.Width = Runtime.ScreenWidth;
+
             foreach (Wishlist w in user.getMyWishlists())
             {
                 MyWishlists.Add(w);

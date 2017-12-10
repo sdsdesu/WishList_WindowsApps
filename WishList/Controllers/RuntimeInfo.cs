@@ -15,6 +15,8 @@ namespace WishList.Controllers
         public User LoggedInUser { get; set; }
         public AppController AppController { get; set; }
         public TestRepository TestRepos { get; set; }
+        public double ScreenHeight { get; set; }
+        public double ScreenWidth { get; set; }
 
 
         public static RuntimeInfo Instance {
@@ -24,10 +26,16 @@ namespace WishList.Controllers
         private RuntimeInfo() {
             TestRepos = new TestRepository();
             AppController = new AppController();
+
         }
 
         public void SetUserInApp(){
             AppController.User = this.LoggedInUser;
+        }
+
+        public void SetBounds(double height, double width) {
+            ScreenHeight = height;
+            ScreenWidth = width;
         }
 
     }

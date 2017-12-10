@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.StartScreen;
+using WishList.Controllers;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -22,9 +24,14 @@ namespace WishList
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        RuntimeInfo Runtime { get; set; }
+
         public MainPage()
         {
             this.InitializeComponent();
+            Runtime = RuntimeInfo.Instance;
+            Runtime.SetBounds(Window.Current.Bounds.Height, Window.Current.Bounds.Width);
             MainFrame.Navigate(typeof(Wishlists));
         }
 
