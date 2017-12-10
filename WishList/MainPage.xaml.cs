@@ -25,6 +25,7 @@ namespace WishList
         public MainPage()
         {
             this.InitializeComponent();
+            MainFrame.Navigate(typeof(Wishlists));
         }
 
         //THERE CAN ONLY BE ONE!

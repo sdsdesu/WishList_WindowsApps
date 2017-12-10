@@ -16,21 +16,24 @@ namespace WishList.Models
         public string DeadlineS { get; set; }
         public List<User> Buyers{ get; set; }              //Users invited to wishlists
         public List<Item> Items { get; set; }
+        public string Occasion { get; set; }
+        public Boolean IsOpen { get; set; }
 
         //buyers can see who bought wich gift, owner can only see if a gift is bought or not
         //when deadline expires buyers lose access to the wishlist, but not the owner, owner gets to see after deadline who bought what (maybe leave some time between to not spoil things)
-
         //when item unbought buyer can see box to mark purchase, gives confirmation and buyers get connected to item
 
         //Constructors
-        public Wishlist(string title)
+        public Wishlist(string title, string occasion)
         {
             Title = title;
+            Occasion = occasion;
             Buyers = new List<User>();
             Items = new List<Item>();
         }
-        public Wishlist(string title, DateTime deadline) : this(title)
+        public Wishlist(User owner , string title, string occasion, DateTime deadline) : this(title, occasion)
         {
+            Owner = owner;
             Deadline = deadline;
             DeadlineS = deadline.ToString("ddd dd/MM/yyyy");
         }
@@ -41,6 +44,7 @@ namespace WishList.Models
         //Function 1)Add Event
         public void addDeadline(DateTime deadline) {
             Deadline = Deadline;
+            DeadlineS = deadline.ToString("ddd dd/MM/yyyy");
         }
 
         //Function 2)AddBuyer

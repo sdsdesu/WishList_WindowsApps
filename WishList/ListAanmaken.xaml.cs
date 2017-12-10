@@ -26,20 +26,38 @@ namespace WishList
     {
 
         RuntimeInfo Runtime { get; set; }
+        AppController AppController { get; set; }
 
         public ListAanmaken()
         {
             this.InitializeComponent();
             Runtime = RuntimeInfo.Instance;
+            AppController = Runtime.AppController;
         }
+
+
+        private void HandleCheck(object sender, RoutedEventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+            checkboxinfo.Text = "Enkel deelnemers toevoegen via uitnodeging.";
+        }
+
+        private void HandleUnchecked(object sender, RoutedEventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+            checkboxinfo.Text = "Vrienden kunnen zelf vragen om deel te nemen aan wishlist.";
+
+        }
+
 
         //NAVIGATION FUNCTIONS
         //Onclick funtions
         public void ButtonAdd_Click(object sender, RoutedEventArgs e)   //can only be clicked when given a 
         {
             //testcode hardcoded
-            Wishlist w = new Wishlist("LAN PARTY", new DateTime(2018, 2, 28));
-            Runtime.LoggedInUser.addWishlist(w);
+            Wishlist w = new Wishlist(Runtime.LoggedInUser, "LAN PARTY", "get together" ,new DateTime(2018, 2, 28));
+            w.IsOpen = true;
+            AppController.addWishlist(w);
             //end testcode
             Frame.Navigate(typeof(Wishlists));
         }

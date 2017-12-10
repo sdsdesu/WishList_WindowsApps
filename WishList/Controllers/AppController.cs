@@ -40,24 +40,28 @@ namespace WishList.Controllers
             return true;
         }
 
-        
+
         //Function 2)AddWishlist - add wishlist to currently logged in user widouth users or items
-        
-        public void addWishlist(string title, DateTime deadline) {
-            Wishlist w = new Wishlist(title, deadline);
+        public void addWishlist(Wishlist w)
+        {
+            this.User.addWishlist(w);
+        }
+
+        public void addWishlist(string title, string occasion,  DateTime deadline) {
+            Wishlist w = new Wishlist(this.User, title, occasion, deadline);
         }
         //Function 3)AddWishlist - add wishlist to currently logged in user with users including contacts you wish to add
-        public void addWishlist(string title, DateTime deadline, List<User> buyers)
+        public void addWishlist(string title, string occasion ,DateTime deadline, List<User> buyers)
         {
-            Wishlist w = new Wishlist(title, deadline);
+            Wishlist w = new Wishlist(this.User, title, occasion, deadline);
             foreach (User b in buyers) {
                 w.addBuyer(b);
             }
         }
         //Function 4)AddWishlist - add wishlist to currently logged in user widouth users but with items
-        public void addWishlist(string title, DateTime deadline, List<Item> items)
+        public void addWishlist(string title, string occasion, DateTime deadline, List<Item> items)
         {
-            Wishlist w = new Wishlist(title, deadline);
+            Wishlist w = new Wishlist(this.User, title, occasion, deadline);
             foreach (Item i in items)
             {
                 w.addItem(i);
@@ -65,9 +69,9 @@ namespace WishList.Controllers
 
         }
         //Function 5)AddWishlist - add wishlist to currently logged in user with users but with items
-        public void addWishlist(string title, DateTime deadline, List<User> buyers, List<Item> items)
+        public void addWishlist(string title, string occasion, DateTime deadline, List<User> buyers, List<Item> items)
         {
-            Wishlist w = new Wishlist(title, deadline);
+            Wishlist w = new Wishlist(this.User, title, occasion, deadline);
             foreach (User b in buyers)
             {
                 w.addBuyer(b);

@@ -29,16 +29,25 @@
         <SplitView.Content>-->
             <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                 <TextBlock Text="Een Nieuwe Wishlist aanmaken" />
-                <!--The name of the user wil go in this TextBlock-->
-                <TextBlock x:Name="NameUser" TextWrapping="Wrap" Text="Naam "></TextBlock>
+        <!--the user can put the name of the wishlist in this Textbox-->
                 <TextBlock Text="Naam lijst:" />
-                <!--the user can put the name of the wishlist in this Textbox-->
                 <TextBox x:Name="Namelist"/>
-                <StackPanel Orientation="Horizontal">
-                    <Button Content="Add list" Click="ButtonAdd_Click" />
-                    <Button Content="Back" Click="ButtonBack_Click"/>
-                </StackPanel>
-            </StackPanel>
+        <!--the user geeft reden/occasion waarom event plaatsvind => vrije string ipv enum (to much variety in events)-->
+                <TextBlock Text="Reden voor wishlist:" />
+                <TextBox x:Name="NameOccasion"/>
+        <!--the user deadline datum tegen wanneer wishlist afgesloten word (week na afsluiten word wishlist uit zichtbaarheid verwijderd)-->
+                <TextBlock Text="Dealine van wishlist:" />
+                <DatePicker x:Name="eventDatePicker" CalendarIdentifier="GregorianCalendar"/>
+        <!--User geeft op of deze wishlist open (zichtbaar voor mensen in contaclist) of gesloten is (enkel op invite)-->
+                <TextBlock Text="enkel op uitnodiging:" Height="34" />
+                <CheckBox x:Name="checkboxPublic" Content="enkel op uitnodiging" Checked="HandleCheck" Unchecked="HandleUnchecked" Width="360" />
+                <TextBlock x:Name="checkboxinfo"  />
+        <!--Tooltips toevoegen-->
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Add list" Click="ButtonAdd_Click" />
+            <Button Content="Back" Click="ButtonBack_Click"/>
+        </StackPanel>
+    </StackPanel>
         <!--</SplitView.Content>
     </SplitView>-->
 

@@ -29,10 +29,10 @@ namespace WishList.Repostitory
             UserTwo.addContact(UserThree);
 
 
-            Wishlist wishlist1 = new Wishlist("Fuck da police", new DateTime(2018, 2, 28));
-            Wishlist wishlist2 = new Wishlist("Gimme stuff", new DateTime(2017, 11, 25));
-            Wishlist wishlist3 = new Wishlist("Jolly fat man", new DateTime(2017, 12, 25));
-            Wishlist wishlist4 = new Wishlist("Nihilism", new DateTime(2019, 12, 30));
+            Wishlist wishlist1 = new Wishlist(UserOne, "Fuck da police", "Kerstmis", new DateTime(2018, 2, 28));
+            Wishlist wishlist2 = new Wishlist(UserTwo, "Gimme stuff", "Birthday", new DateTime(2017, 11, 25));
+            Wishlist wishlist3 = new Wishlist(UserTwo, "Jolly fat man", "sinterklaas", new DateTime(2017, 12, 25));
+            Wishlist wishlist4 = new Wishlist(UserOne, "Nihilism", "barbecue", new DateTime(2019, 12, 30));
 
             wishlist1.addBuyer(UserThree);
             wishlist2.addBuyer(UserOne);

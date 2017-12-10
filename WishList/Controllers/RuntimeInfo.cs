@@ -15,7 +15,7 @@ namespace WishList.Controllers
         public User LoggedInUser { get; set; }
         public AppController AppController { get; set; }
         public TestRepository TestRepos { get; set; }
-        
+
 
         public static RuntimeInfo Instance {
             get { return _instance; }
@@ -24,6 +24,10 @@ namespace WishList.Controllers
         private RuntimeInfo() {
             TestRepos = new TestRepository();
             AppController = new AppController();
+        }
+
+        public void SetUserInApp(){
+            AppController.User = this.LoggedInUser;
         }
 
     }
