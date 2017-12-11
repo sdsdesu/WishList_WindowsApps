@@ -32,6 +32,7 @@ namespace WishList.Models
             Notifications = new List<Message>();
             MyWishlists = new List<Wishlist>();
             OthersWishlists = new List<Wishlist>();
+            Favorites = new Wishlist("Mijn favoriete cadeau's", "General");
         }
 
         //Functions
@@ -68,6 +69,10 @@ namespace WishList.Models
 
         public List<Wishlist> getMyWishlists() {
             return MyWishlists;
+        }
+
+        public void FillFavorites(List<Item> gifts) {
+            Favorites.Items = gifts;
         }
 
     }

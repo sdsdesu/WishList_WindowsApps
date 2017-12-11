@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.StartScreen;
 using WishList.Controllers;
+using WishList.Views.Profile;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -55,6 +56,8 @@ namespace WishList
         {
             MainFrame.Navigate(typeof(SocialView));
         }
+
+        
 
     }
 }

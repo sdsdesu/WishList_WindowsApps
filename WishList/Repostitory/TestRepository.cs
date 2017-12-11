@@ -43,6 +43,12 @@ namespace WishList.Repostitory
             Item gift3 = new Item("50 shades of gray", Category.Literature, "Because I hate myself");
             Item gift4 = new Item("The illegalest of drugs", Category.Consumable, "Wouldn't be a party otherwise");
 
+            List<Item> fav1 = new List<Item>();
+            List<Item> fav2 = new List<Item>();
+
+            fav1.Add(gift4); fav1.Add(gift3);
+            fav2.Add(gift2); fav2.Add(gift1);
+
             wishlist1.addItem(gift1);
             wishlist1.addItem(gift4);
             wishlist3.addItem(gift2);
@@ -52,6 +58,9 @@ namespace WishList.Repostitory
             UserOne.addWishlist(wishlist4);
             UserTwo.addWishlist(wishlist2);
             UserTwo.addWishlist(wishlist3);
+
+            UserOne.FillFavorites(fav1);
+            UserThree.FillFavorites(fav2);
 
             Users.Add(UserOne);
             Users.Add(UserTwo);

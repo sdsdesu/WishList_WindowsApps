@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WishList.Controllers;
 using WishList.Models;
+using WishList.Views.Profile;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -32,6 +33,7 @@ namespace WishList
             Runtime = RuntimeInfo.Instance;
             username.Text = Runtime.LoggedInUser.getFullName();
             email.Text = "Email: " + Runtime.LoggedInUser.Email;
+            FavoriteFrame.Navigate(typeof(FavoriteWishes));
         }
 
         public ProfileView(User friend)
@@ -44,8 +46,12 @@ namespace WishList
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             User Friend = e.Parameter as User;
-            username.Text = Friend.getFullName();
-            email.Text = "Email: " + Friend.Email;
+            if (Friend != null) {
+                username.Text = Friend.getFullName();
+                email.Text = "Email: " + Friend.Email;
+                FavoriteFrame.Navigate(typeof(FavoriteWishes), Friend);
+            }
+
         }
     }
 }
