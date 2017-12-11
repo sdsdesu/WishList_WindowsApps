@@ -36,14 +36,11 @@ namespace WishList
             WishlistName.Text = "Voor Wishlist: " + Ac.SelectedWishlist.Title;
             CategoryBox.ItemsSource = Enum.GetValues(typeof(Category));
             CategoryBox.SelectedIndex = 0; //can only be done here as contents of list are only initialized in the line above
-
         }
-
 
 
         public void ButtonAdd_Click(object sender, RoutedEventArgs e)   //can only be clicked when given a 
         {
-
             //Create wishlist for user and add to the logged in user, appcontroller connects to database and adds it there as well
             Item i = new Item(NameWish.Text, (Category)CategoryBox.SelectedItem);
             i.WebLink = WebLink.Text;

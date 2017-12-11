@@ -25,7 +25,5 @@ namespace WishList.Models
 
             IsAccepted = false;
         }
-
-
     }
 }
