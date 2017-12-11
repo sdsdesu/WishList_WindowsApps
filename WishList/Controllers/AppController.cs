@@ -9,10 +9,7 @@ namespace WishList.Controllers
 {
     public class AppController
     {
-        /*public static MobileServiceClient MobileService =
-        new MobileServiceClient(
-            "https://wishlistsdsdesu.azurewebsites.net"
-        );*/
+
         //Variable declaration and getters and setters
         public User User { get; set; }      //currently logged in user on the app
         public Wishlist SelectedWishlist { get; set; }
