@@ -37,6 +37,10 @@ namespace WishList
             SelectedWishlist = Runtime.AppController.SelectedWishlist;
             Title.Text = SelectedWishlist.Title;
 
+            myWishlistItems.Height = Runtime.ScreenHeight/1.2;
+            myWishlistItems.Width = Runtime.ScreenWidth;
+            
+
             foreach (Item i in SelectedWishlist.Items)
             {
                 WishlistItems.Add(i);

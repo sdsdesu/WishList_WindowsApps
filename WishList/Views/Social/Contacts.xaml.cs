@@ -37,6 +37,9 @@ namespace WishList
             this.InitializeComponent();
             Runtime = RuntimeInfo.Instance;
 
+            MyFriends.Height = Runtime.ScreenHeight/1.2;
+            MyFriends.Width = Runtime.ScreenWidth;
+
             foreach (User f in Runtime.LoggedInUser.Contacts)
             {
                 Friends.Add(f);

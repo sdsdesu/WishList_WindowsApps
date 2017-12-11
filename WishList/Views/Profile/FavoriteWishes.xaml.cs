@@ -34,7 +34,9 @@ namespace WishList.Views.Profile
 
             this.InitializeComponent();
             Runtime = RuntimeInfo.Instance;
-            
+
+            FavoriteGifts.Height = Runtime.ScreenHeight/1.5;
+            FavoriteGifts.Width = Runtime.ScreenWidth;
 
             foreach (Item i in Runtime.LoggedInUser.Favorites.Items)
             {
