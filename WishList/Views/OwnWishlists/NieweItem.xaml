@@ -8,16 +8,24 @@
     mc:Ignorable="d">
 
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="Een Nieuwe Wishlist aanmaken" />
+        <TextBlock Text="Wens toevoegen" Style="{StaticResource TitleTextBlockStyle}" />
         <!--The name of the user wil go in this TextBlock-->
-        <TextBlock x:Name="NameUser" TextWrapping="Wrap" Text="Naam "></TextBlock>
-        <TextBlock Text="Naam lijst" />
+        <TextBlock x:Name="WishlistName" Text="Voor wishlist: " />
         <!--the user can put the name of the wishlist in this Textbox-->
-        <TextBlock Text="Naam item" />
-        <TextBox x:Name="Namelist"/>
+        <TextBlock Text="Naam: " />
+        <TextBox x:Name="NameWish"/>
+        <TextBlock Text="Category: " />                                                          
+        <ComboBox x:Name="CategoryBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+        <TextBlock Text="Website-Link: " />
+        <TextBox x:Name="WebLink" PlaceholderText="Optional"/>
+        <TextBlock Text="Beschrijving product: " />
+        <TextBox x:Name="DescriptionItem" PlaceholderText="Optional"/>
+
         <StackPanel Orientation="Horizontal">
-            <Button Content="Add Item"/>
             <Button Content="Back"/>
+            <Button Content="Add Item"/>
         </StackPanel>
+
     </StackPanel>
 </Page>

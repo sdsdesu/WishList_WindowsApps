@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using WishList.Controllers;
+using WishList.Models;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,9 +24,21 @@ namespace WishList
     /// </summary>
     public sealed partial class NieweItem : Page
     {
+
+        RuntimeInfo Runtime { get; }
+        AppController Ac { get; }
         public NieweItem()
         {
             this.InitializeComponent();
+            Runtime = RuntimeInfo.Instance;
+            Ac = Runtime.AppController;
+
+            WishlistName.Text = "Voor Wishlist: " + Ac.SelectedWishlist.Title;
+            CategoryBox.ItemsSource = Enum.GetValues(typeof(Category));
+            CategoryBox.SelectedIndex = 0; //can only be done here as contents of list are only initialized in the line above
+
+
+
         }
     }
 }

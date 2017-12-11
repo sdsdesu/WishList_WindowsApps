@@ -25,7 +25,7 @@ namespace WishList
     /// </summary>
     public sealed partial class WishListPage : Page
     {
-        RuntimeInfo Runtime;
+        RuntimeInfo Runtime { get; }
         Wishlist SelectedWishlist { get; set; }
         Item SelectedWishlistItem { get; set; }
         public ObservableCollection<Item> WishlistItems = new ObservableCollection<Item>();
@@ -46,7 +46,7 @@ namespace WishList
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Frame.Navigate(typeof(NieweItem));
         }
 
         private void SelectionChanged_WishlistItem(object sender, SelectionChangedEventArgs e)
@@ -73,22 +73,5 @@ namespace WishList
         }
 
 
-        //RIP
-        //public void SideBarButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    SplitNav.IsPaneOpen = !SplitNav.IsPaneOpen;
-        //}
-        //public void ButtonMyWishlists_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Frame.Navigate(typeof(Login));
-        //}
-        //public void ButtonOtherWishlists_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Frame.Navigate(typeof(Wishlists));
-        //}
-        //public void ButtonSocial_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Frame.Navigate(typeof(WishListPage));
-        //}
     }
 }
