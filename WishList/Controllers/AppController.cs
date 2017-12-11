@@ -13,7 +13,8 @@ namespace WishList.Controllers
         //Variable declaration and getters and setters
         public User User { get; set; }      //currently logged in user on the app
         public Wishlist SelectedWishlist { get; set; }
-    
+        public Item SelectedItem { get; set; }
+
         //Constructors
         public AppController(){}
 
@@ -81,10 +82,15 @@ namespace WishList.Controllers
                 w.addItem(i);
             }
         }
-        
+
 
         //Function 6)GetOwnWishlist
 
+
+
+        public void AddItem(Item i) {
+            SelectedWishlist.addItem(i);
+        }
 
     }
 }

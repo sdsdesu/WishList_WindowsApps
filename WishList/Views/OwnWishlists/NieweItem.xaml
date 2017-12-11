@@ -23,8 +23,8 @@
         <TextBox x:Name="DescriptionItem" PlaceholderText="Optional"/>
 
         <StackPanel Orientation="Horizontal">
-            <Button Content="Back"/>
-            <Button Content="Add Item"/>
+            <Button Content="Back" Click="ButtonReturn_Click"/>
+            <Button Content="Add Item" Click="ButtonAdd_Click"/>
         </StackPanel>
 
     </StackPanel>

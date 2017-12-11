@@ -38,10 +38,10 @@ namespace WishList.Repostitory
             wishlist2.addBuyer(UserOne);
             wishlist2.addBuyer(UserThree);
 
-            Item gift1 = new Item("Gameboy","Old school tech", Category.Tech);
-            Item gift2 = new Item("Lawn mower", "Why the hell not", Category.Garden);
-            Item gift3 = new Item("50 shades of gray", "Because I hate myself", Category.Literature);
-            Item gift4 = new Item("The illegalest of drugs", "Wouldn't be a party otherwise", Category.Consumable);
+            Item gift1 = new Item("Gameboy", Category.Tech, "Old school tech");
+            Item gift2 = new Item("Lawn mower", Category.Garden, "Why the hell not");
+            Item gift3 = new Item("50 shades of gray", Category.Literature, "Because I hate myself");
+            Item gift4 = new Item("The illegalest of drugs", Category.Consumable, "Wouldn't be a party otherwise");
 
             wishlist1.addItem(gift1);
             wishlist1.addItem(gift4);
