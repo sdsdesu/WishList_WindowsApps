@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using WishList.Models;
 using WishList.Controllers;
+using WishList.Views.Social;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -69,7 +70,7 @@ namespace WishList
 
         public void AddFriendButton_Click(object sender, RoutedEventArgs e)
         {
-            //Frame.Navigate(typeof(AddContact));
+            Frame.Navigate(typeof(AddContact));
         }
         public void ViewDetailButton_Click(object sender, RoutedEventArgs e)
         {
