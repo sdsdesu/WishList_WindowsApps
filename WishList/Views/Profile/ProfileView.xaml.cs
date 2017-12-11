@@ -26,11 +26,13 @@ namespace WishList
     public sealed partial class ProfileView : Page
     {
         RuntimeInfo Runtime { get; set; }
+        Wishlist Favorites { get; set; }
 
         public ProfileView()
         {
             this.InitializeComponent();
             Runtime = RuntimeInfo.Instance;
+            Favorites = Runtime.LoggedInUser.Favorites;
             username.Text = Runtime.LoggedInUser.getFullName();
             email.Text = "Email: " + Runtime.LoggedInUser.Email;
             FavoriteFrame.Navigate(typeof(FavoriteWishes));
@@ -46,12 +48,21 @@ namespace WishList
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             User Friend = e.Parameter as User;
-            if (Friend != null) {
+            if (Friend != null)
+            {
+                Favorites = Friend.Favorites;
                 username.Text = Friend.getFullName();
                 email.Text = "Email: " + Friend.Email;
                 FavoriteFrame.Navigate(typeof(FavoriteWishes), Friend);
             }
+            else {
+                ButtonAdd.Visibility = Visibility.Visible;
+            }
+        }
 
+        public void AddFavorite_Click(object sender, RoutedEventArgs e)
+        {
+            FavoriteFrame.Navigate(typeof(NieweItem), Favorites);
         }
     }
 }

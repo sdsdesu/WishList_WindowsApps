@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WishList.Controllers;
 using WishList.Models;
+using WishList.Views.Profile;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -33,9 +34,6 @@ namespace WishList
             Runtime = RuntimeInfo.Instance;
             Ac = Runtime.AppController;
 
-            WishlistName.Text = "Voor Wishlist: " + Ac.SelectedWishlist.Title;
-            CategoryBox.ItemsSource = Enum.GetValues(typeof(Category));
-            CategoryBox.SelectedIndex = 0; //can only be done here as contents of list are only initialized in the line above
         }
 
 
@@ -48,11 +46,39 @@ namespace WishList
 
             Ac.AddItem(i);
             //end testcode
-            Frame.Navigate(typeof(WishListPage));
+            if (Ac.SelectedWishlist.Title == "Mijn favoriete cadeau's")
+            {
+                Frame.Navigate(typeof(FavoriteWishes));
+            }
+            else {
+                Frame.Navigate(typeof(WishListPage));
+            }
+            
         }
         public void ButtonReturn_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(WishListPage));
+            if (Ac.SelectedWishlist.Title == "Mijn favoriete cadeau's")
+            {
+                Frame.Navigate(typeof(FavoriteWishes));
+            }
+            else
+            {
+                Frame.Navigate(typeof(WishListPage));
+            }
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Wishlist Favorites = e.Parameter as Wishlist;
+            if (Favorites != null)
+            {
+                Ac.SelectedWishlist = Favorites;
+            }
+            WishlistName.Text = "Voor Wishlist: " + Ac.SelectedWishlist.Title;
+            CategoryBox.ItemsSource = Enum.GetValues(typeof(Category));
+            CategoryBox.SelectedIndex = 0; //can only be done here as contents of list are only initialized in the line above
+
+        }
+
     }
 }
