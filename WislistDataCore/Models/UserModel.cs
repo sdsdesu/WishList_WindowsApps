@@ -12,7 +12,7 @@ namespace WislistDataCore.Models
         public int UserId { get; set; }                    //id of user    //unique generated on creation
         public string Firstname { get; set; }              //name of user
         public string Lastname { get; set; }
-        public string Password { get; set; }
+        
 
     }
 }
