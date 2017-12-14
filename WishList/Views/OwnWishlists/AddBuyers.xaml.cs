@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using WishList.Models;
+using WishList.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,9 +24,24 @@ namespace WishList.Views.OwnWishlists
     /// </summary>
     public sealed partial class AddBuyers : Page
     {
+        ContactViewModel ContactViewModel { get; set; }
+
         public AddBuyers()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+
+            Wishlist w = e.Parameter as Wishlist;
+            //Check if passed
+            if (w != null)
+            {
+                ContactViewModel = new ContactViewModel(w);    //pass a selected wishlist to model so both contacts and wishlist can get updated
+            }
+
+
         }
     }
 }
