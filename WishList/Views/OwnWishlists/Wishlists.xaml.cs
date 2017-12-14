@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Navigation;
 using WishList.Controllers;
 using WishList.Models;
 using WishList.Repostitory;
+using WishList.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -31,10 +32,12 @@ namespace WishList
         public ObservableCollection<Wishlist> MyWishlists = new ObservableCollection<Wishlist>();
         RuntimeInfo Runtime;
         public Wishlist SelectedWishlist { get; set; }
+        //public WishlistsViewModel {get; set;}
 
         public Wishlists()
         {
             this.InitializeComponent();
+
             Runtime = RuntimeInfo.Instance;
             List<User> users = Runtime.TestRepos.GetUsers();
             User user = users.FirstOrDefault(u => u.UserId == Runtime.LoggedInUserId);
@@ -86,8 +89,7 @@ namespace WishList
         public void ViewWishlistButton_Click(object sender, RoutedEventArgs e)
         {
             if (SelectedWishlist != null) {
-                Runtime.AppController.SelectedWishlist = SelectedWishlist;
-                Frame.Navigate(typeof(WishListPage));
+                Frame.Navigate(typeof(WishListPage), SelectedWishlist); // replace SelectedWishlist with WishlistsViewModel.SelectedWishlist
             }
         }
         public void RemoveWishlist_Click(object sender, RoutedEventArgs e)

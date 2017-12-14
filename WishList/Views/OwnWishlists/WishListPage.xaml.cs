@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WishList.Controllers;
 using WishList.Models;
+using WishList.ViewModels;
+using WishList.Views.OwnWishlists;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,38 +28,37 @@ namespace WishList
     public sealed partial class WishListPage : Page
     {
         RuntimeInfo Runtime { get; }
-        Wishlist SelectedWishlist { get; set; }
-        Item SelectedWishlistItem { get; set; }
-        public ObservableCollection<Item> WishlistItems = new ObservableCollection<Item>();
+        WishlistViewModel WishlistViewModel { get; set; }
+        
 
         public WishListPage()
         {
             this.InitializeComponent();
             Runtime = RuntimeInfo.Instance;
-            SelectedWishlist = Runtime.AppController.SelectedWishlist;
-            Title.Text = SelectedWishlist.Title;
 
-            myWishlistItems.Height = Runtime.ScreenHeight/1.2;
+
+            myWishlistItems.Height = Runtime.ScreenHeight/1.2;  //temprary method of scaling by screen
             myWishlistItems.Width = Runtime.ScreenWidth;
             
-
-            foreach (Item i in SelectedWishlist.Items)
-            {
-                WishlistItems.Add(i);
-            }
-            myWishlistItems.DataContext = WishlistItems;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(NieweItem));
+            Frame.Navigate(typeof(NieweItem), WishlistViewModel.selectedWishlist);
+        }
+        
+
+        private void ButtonAddBuyers_Click(object sender, RoutedEventArgs e)
+        {
+            //navigate to differen view then shown in contacts as we only need simple list not detailed listview - but this view still uses ContactViewModel
+            Frame.Navigate(typeof(AddBuyers), WishlistViewModel.selectedWishlist);
         }
 
+        //listview layout manipulation based on selected item
         private void SelectionChanged_WishlistItem(object sender, SelectionChangedEventArgs e)
         {
             if (myWishlistItems.SelectedItem != null)
             {
-                SelectedWishlistItem = (Item)myWishlistItems.SelectedItem;
                 ButtonRemove.Visibility = Visibility.Visible;
             }
 
@@ -76,6 +77,18 @@ namespace WishList
             selectedItem.ContentTemplate = (DataTemplate)this.Resources["SelectedItemView"];
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Wishlist selectedWishlist = e.Parameter as Wishlist;
+            if (selectedWishlist != null)
+            {
+                WishlistViewModel = new WishlistViewModel(selectedWishlist);
+                DataContext = WishlistViewModel;
+            }
+            else {
+                throw new ArgumentNullException("Always pass a wishlist to this page");
+            }
+        }
 
     }
 }
