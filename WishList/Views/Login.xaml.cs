@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Runtime.Serialization;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -46,9 +48,20 @@ namespace WishList
         }
 
         public async void testDbAsync() {
-            ToDoItem item = new ToDoItem { Text = "awsome item", Complete = false };
-            await App.MobileService.GetTable<ToDoItem>().InsertAsync(item);
+            TodoItem item = new TodoItem
+            {
+                Text = "Awesome item",
+                Complete = false
+            };
+            await App.MobileService.GetTable<TodoItem>().InsertAsync(item);
         }
 
+    }
+
+    public class TodoItem
+    {
+        public string Id { get; set; }
+        public string Text { get; set; }
+        public bool Complete { get; set; }
     }
 }
