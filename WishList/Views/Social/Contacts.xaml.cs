@@ -48,6 +48,7 @@ namespace WishList
             MyFriends.DataContext = Friends;
         }
 
+
         private void SelectionChanged_Contact(object sender, SelectionChangedEventArgs e)
         {
             if (MyFriends.SelectedItem != null)

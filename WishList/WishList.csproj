@@ -97,6 +97,16 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Repostitory\ToDoItem.cs" />
+    <Compile Include="ViewModels\Commands\AddWishlistItemCommand.cs" />
+    <Compile Include="ViewModels\Commands\RemoveWishlistItemCommand.cs" />
+    <Compile Include="ViewModels\ContactViewModel.cs" />
+    <Compile Include="ViewModels\ItemViewModel.cs" />
+    <Compile Include="ViewModels\ProfileViewModel.cs" />
+    <Compile Include="ViewModels\WishlistsViewModel.cs" />
+    <Compile Include="ViewModels\WishlistViewModel.cs" />
+    <Compile Include="Views\OwnWishlists\AddBuyers.xaml.cs">
+      <DependentUpon>AddBuyers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\OwnWishlists\ItemPage.xaml.cs">
       <DependentUpon>ItemPage.xaml</DependentUpon>
     </Compile>
@@ -175,6 +185,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\OwnWishlists\AddBuyers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\OwnWishlists\ItemPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -236,9 +250,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

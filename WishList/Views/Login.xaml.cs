@@ -36,7 +36,7 @@ namespace WishList
 
         public void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            testDbAsync();
+            //testDbAsync();
 
 
             Runtime.LoggedInUserId = 1;
