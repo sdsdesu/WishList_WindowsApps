@@ -20,8 +20,8 @@ namespace wishlistsdsdesuService.Migrations
         {
             List<Person> persons = new List<Person>
             {
-                new Person { /*Id = Guid.NewGuid().ToString(),*/ FirstName = "Timo", LastName = "Spanhove", Email = "Impling@UberDnD.co.uk", Password = "ChickenYUCrossRoad1" },
-                new Person { /*Id = Guid.NewGuid().ToString(),*/ FirstName = "Victor", LastName = "Van Weyenberg", Email = "SirAldric@UberDnD.co.uk", Password = "ChickenYUCrossRoad1" }
+                new Person { Id = Guid.NewGuid().ToString(), FirstName = "Timo", LastName = "Spanhove", Email = "Impling@UberDnD.co.uk", Password = "ChickenYUCrossRoad1" },
+                new Person { Id = Guid.NewGuid().ToString(), FirstName = "Victor", LastName = "Van Weyenberg", Email = "SirAldric@UberDnD.co.uk", Password = "ChickenYUCrossRoad1" }
             };
 
             context.Persons.AddOrUpdate(persons[0], persons[1]);

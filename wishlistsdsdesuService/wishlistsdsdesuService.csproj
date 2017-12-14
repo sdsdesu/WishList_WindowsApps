@@ -88,6 +88,7 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data" />
     <Reference Include="System.Web.Http">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
@@ -151,9 +152,18 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataObjects\Person.cs" />
     <Compile Include="DataObjects\TodoItem.cs" />
+    <Compile Include="DataObjects\WishList.cs" />
     <Compile Include="Migrations\201712141422446_Initial.cs" />
     <Compile Include="Migrations\201712141422446_Initial.Designer.cs">
       <DependentUpon>201712141422446_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712141515446_Initial1.cs" />
+    <Compile Include="Migrations\201712141515446_Initial1.Designer.cs">
+      <DependentUpon>201712141515446_Initial1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712141517516_Carl.cs" />
+    <Compile Include="Migrations\201712141517516_Carl.Designer.cs">
+      <DependentUpon>201712141517516_Carl.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\wishlistsdsdesuContext.cs" />
@@ -178,6 +188,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712141422446_Initial.resx">
       <DependentUpon>201712141422446_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712141515446_Initial1.resx">
+      <DependentUpon>201712141515446_Initial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712141517516_Carl.resx">
+      <DependentUpon>201712141517516_Carl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
