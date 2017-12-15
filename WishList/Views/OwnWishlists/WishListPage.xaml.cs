@@ -37,7 +37,7 @@ namespace WishList
             Runtime = RuntimeInfo.Instance;
 
             myWishlistItems.Height = Runtime.ScreenHeight/1.2;  //temprary method of scaling by screen
-            myWishlistItems.Width = Runtime.ScreenWidth;     
+            myWishlistItems.Width = Runtime.ScreenWidth-50;     
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

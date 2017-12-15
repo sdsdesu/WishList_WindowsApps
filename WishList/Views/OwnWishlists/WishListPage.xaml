@@ -19,11 +19,22 @@
         <!--  details expand template  -->
         <DataTemplate x:Key="SelectedItemView" x:DataType="src:Item">
             <StackPanel Width="Auto" HorizontalAlignment="Stretch">
-                <TextBlock Margin="12, 15, 12, 0" FontSize="18" Text="{x:Bind Path=Name, Mode=OneWay}" />
-
-                <StackPanel>
-                    <TextBlock Margin="12, 15, 12, 0" Text="{x:Bind Path=Category, Mode=OneWay}" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock  Margin="0, 5, 5, 5" FontSize="22" Text="{x:Bind Path=Name, Mode=OneWay}"  HorizontalAlignment="Left"/>
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Visibility="Visible">
+                        <TextBlock  Margin="100, 15, 0, 0"  FontSize="18" Text="Bought by: " HorizontalAlignment="Left"/>
+                        <TextBlock  Margin="5, 15, 0, 0" FontSize="18" Text="{x:Bind Path=Buyer.Firstname, Mode=OneWay}" HorizontalAlignment="Left"/>
+                        <TextBlock  Margin="0, 15, 0, 0" FontSize="18" Text="{x:Bind Path=Buyer.Lastname, Mode=OneWay}" HorizontalAlignment="Left"/>
+                    </StackPanel>
                 </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock  Margin="10, 15, 0, 0"  FontSize="18" Text="Category: "/>
+                    <TextBlock  Margin="10, 15, 12, 0"  FontSize="18" Text="{x:Bind Path=Category, Mode=OneWay}" />
+                </StackPanel>
+                <TextBlock Margin="10, 10, 10, 2" FontSize="18" Text="Description: "/>
+                <Border BorderBrush="Gray" BorderThickness="2" Grid.Row="0" Margin="0, 0, 10, 10">
+                    <TextBlock TextWrapping="Wrap"  Margin="10, 10, 10, 10" FontSize="18" Text="{x:Bind Path=Description, Mode=OneWay}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </Border>
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
