@@ -44,6 +44,8 @@ namespace WishList.Repostitory
             Item gift3 = new Item("50 shades of gray", Category.Literature, "Because I hate myself");
             Item gift4 = new Item("The illegalest of drugs", Category.Consumable, "Wouldn't be a party otherwise");
             gift1.Buyer = UserTwo;
+            gift1.Image = "/Images/testImage.png";
+            gift1.WebLink = "https://www.youtube.com/watch?v=qwykNDZBl-M";
 
             ObservableCollection<Item> fav1 = new ObservableCollection<Item>();
             ObservableCollection<Item> fav2 = new ObservableCollection<Item>();
