@@ -32,31 +32,22 @@ namespace WishList
         {
             this.InitializeComponent();
             Runtime = RuntimeInfo.Instance;
-            Favorites = Runtime.LoggedInUser.Favorites;
-            username.Text = Runtime.LoggedInUser.getFullName();
-            email.Text = "Email: " + Runtime.LoggedInUser.Email;
-            FavoriteFrame.Navigate(typeof(FavoriteWishes));
         }
 
-        public ProfileView(User friend)
-        {
-            this.InitializeComponent();
-            Runtime = RuntimeInfo.Instance;
-
-        }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            User Friend = e.Parameter as User;
-            if (Friend != null)
+            User u = e.Parameter as User;
+            Favorites = u.Favorites;
+            username.Text = u.getFullName();
+            email.Text = "Email: " + u.Email;
+            FavoriteFrame.Navigate(typeof(FavoriteWishes), u);
+            if (u == Runtime.LoggedInUser)
             {
-                Favorites = Friend.Favorites;
-                username.Text = Friend.getFullName();
-                email.Text = "Email: " + Friend.Email;
-                FavoriteFrame.Navigate(typeof(FavoriteWishes), Friend);
+                ButtonAdd.Visibility = Visibility.Visible;
             }
             else {
-                ButtonAdd.Visibility = Visibility.Visible;
+                ButtonAdd.Visibility = Visibility.Collapsed;
             }
         }
 

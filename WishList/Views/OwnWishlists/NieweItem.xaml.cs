@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WishList.Controllers;
 using WishList.Models;
+using WishList.ViewModels;
 using WishList.Views.Profile;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -26,14 +27,11 @@ namespace WishList
     public sealed partial class NieweItem : Page
     {
 
-        RuntimeInfo Runtime { get; }
-        AppController Ac { get; }
+        WishlistViewModel WishlistViewModel { get; set; }
+
         public NieweItem()
         {
             this.InitializeComponent();
-            Runtime = RuntimeInfo.Instance;
-            Ac = Runtime.AppController;
-
         }
 
 
@@ -44,37 +42,39 @@ namespace WishList
             i.WebLink = WebLink.Text;
             i.Description = DescriptionItem.Text;
 
-            Ac.AddItem(i);
+            WishlistViewModel.AddItem(i);
             //end testcode
-            if (Ac.SelectedWishlist.Title == "Mijn favoriete cadeau's")
+            if (WishlistViewModel.selectedWishlist.Title == "Mijn favoriete cadeau's")
             {
                 Frame.Navigate(typeof(FavoriteWishes));
             }
             else {
-                Frame.Navigate(typeof(WishListPage));
+                Frame.Navigate(typeof(WishListPage), WishlistViewModel.selectedWishlist);
             }
             
         }
         public void ButtonReturn_Click(object sender, RoutedEventArgs e)
         {
-            if (Ac.SelectedWishlist.Title == "Mijn favoriete cadeau's")
+            if (WishlistViewModel.selectedWishlist.Title == "Mijn favoriete cadeau's")
             {
                 Frame.Navigate(typeof(FavoriteWishes));
             }
             else
             {
-                Frame.Navigate(typeof(WishListPage));
+                Frame.Navigate(typeof(WishListPage), WishlistViewModel.selectedWishlist);
             }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Wishlist Favorites = e.Parameter as Wishlist;
-            if (Favorites != null)
+            
+            Wishlist w = e.Parameter as Wishlist;
+            //Check if passed
+            if (w != null)
             {
-                Ac.SelectedWishlist = Favorites;
-            }
-            WishlistName.Text = "Voor Wishlist: " + Ac.SelectedWishlist.Title;
+                WishlistViewModel = new WishlistViewModel(w);    //replace Ac.selectedwishlist with wishlistviewmodel
+            } 
+            WishlistName.Text = "Voor Wishlist: " + WishlistViewModel.selectedWishlist.Title;
             CategoryBox.ItemsSource = Enum.GetValues(typeof(Category));
             CategoryBox.SelectedIndex = 0; //can only be done here as contents of list are only initialized in the line above
 

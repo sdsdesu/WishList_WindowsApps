@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,8 +44,8 @@ namespace WishList.Repostitory
             Item gift3 = new Item("50 shades of gray", Category.Literature, "Because I hate myself");
             Item gift4 = new Item("The illegalest of drugs", Category.Consumable, "Wouldn't be a party otherwise");
 
-            List<Item> fav1 = new List<Item>();
-            List<Item> fav2 = new List<Item>();
+            ObservableCollection<Item> fav1 = new ObservableCollection<Item>();
+            ObservableCollection<Item> fav2 = new ObservableCollection<Item>();
 
             fav1.Add(gift4); fav1.Add(gift3);
             fav2.Add(gift2); fav2.Add(gift1);

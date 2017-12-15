@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,7 +72,7 @@ namespace WishList.Models
             return MyWishlists;
         }
 
-        public void FillFavorites(List<Item> gifts) {
+        public void FillFavorites(ObservableCollection<Item> gifts) {
             Favorites.Items = gifts;
         }
 

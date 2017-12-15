@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Navigation;
 using WishList.Controllers;
 using WishList.Models;
 using WishList.Repostitory;
+using WishList.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -28,28 +29,17 @@ namespace WishList
     public sealed partial class Wishlists : Page
     {
 
-        public ObservableCollection<Wishlist> MyWishlists = new ObservableCollection<Wishlist>();
         RuntimeInfo Runtime;
-        public Wishlist SelectedWishlist { get; set; }
+        WishlistsViewModel WishlistsViewModel {get; set;}
 
         public Wishlists()
         {
             this.InitializeComponent();
+
             Runtime = RuntimeInfo.Instance;
-            List<User> users = Runtime.TestRepos.GetUsers();
-            User user = users.FirstOrDefault(u => u.UserId == Runtime.LoggedInUserId);
 
             myWishlists.Height = Runtime.ScreenHeight-150;
             myWishlists.Width = Runtime.ScreenWidth;
-
-
-            //ADD filter to only show wishlist with deadline after current date, ordered by date
-            foreach (Wishlist w in user.getMyWishlists())
-            {
-                MyWishlists.Add(w);
-            }
-            MyWishlists.OrderBy(x => x.Title);
-            myWishlists.DataContext = MyWishlists;
 
         }
 
@@ -57,56 +47,58 @@ namespace WishList
         {
             if (myWishlists.SelectedItem != null)
             {
-                SelectedWishlist = (Wishlist) myWishlists.SelectedItem;
+                WishlistsViewModel.SelectedWishlist = (Wishlist) myWishlists.SelectedItem;
                 ButtonView.Visibility = Visibility.Visible;
                 ButtonRemove.Visibility = Visibility.Visible;
             }
 
             var listBox = sender as ListBox;
             //get unselected item
-            var unselectedPerson = e.RemovedItems.FirstOrDefault() as Wishlist;
-            if (unselectedPerson != null)
+            var unselectedWishlist = e.RemovedItems.FirstOrDefault() as Wishlist;
+            if (unselectedWishlist != null)
             {
                 //get unselected item container
-                var unselectedItem = listBox.ContainerFromItem(unselectedPerson) as ListBoxItem;
+                var unselectedItem = listBox.ContainerFromItem(unselectedWishlist) as ListBoxItem;
                 //set ContentTemplate
-                unselectedItem.ContentTemplate = (DataTemplate)this.Resources["ItemView"];
+                if (unselectedItem != null)
+                    unselectedItem.ContentTemplate = (DataTemplate)this.Resources["ItemView"];
             }
             //get selected item container
             var selectedItem = listBox.ContainerFromItem(listBox.SelectedItem) as ListBoxItem;
-            selectedItem.ContentTemplate = (DataTemplate)this.Resources["SelectedItemView"];
+            if (selectedItem != null)
+                selectedItem.ContentTemplate = (DataTemplate)this.Resources["SelectedItemView"];
         }
 
         //NAVIGATION FUNCTIONS
         //OnClick NAVIGATION
         public void AddWishlistButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(ListAanmaken));
+            Frame.Navigate(typeof(ListAanmaken), WishlistsViewModel);
         }
+        
         public void ViewWishlistButton_Click(object sender, RoutedEventArgs e)
         {
-            if (SelectedWishlist != null) {
-                Runtime.AppController.SelectedWishlist = SelectedWishlist;
-                Frame.Navigate(typeof(WishListPage));
+            if (WishlistsViewModel.SelectedWishlist != null) {
+                Frame.Navigate(typeof(WishListPage), WishlistsViewModel.SelectedWishlist); // replace SelectedWishlist with WishlistsViewModel.SelectedWishlist
             }
         }
-        public void RemoveWishlist_Click(object sender, RoutedEventArgs e)
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Runtime.LoggedInUser.removeWishlist(SelectedWishlist);
-            Frame.Navigate(typeof(Wishlists));
-            Buttons.Visibility = Visibility.Collapsed;
-        }
-
-
-        private void myWishlists_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            User ActiveUser = e.Parameter as User;
+            if (ActiveUser != null)//check if logged in
+            {
+                WishlistsViewModel = new WishlistsViewModel(ActiveUser);
+                DataContext = WishlistsViewModel;
+            }
         }
 
         private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e) {
            // //eh? 
            //this.Frame.Navigate(typeof(WishListPage));
         }
+
+        // need functions to change view filter by deadline or name
 
 
     }

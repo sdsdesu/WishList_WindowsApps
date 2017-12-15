@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Runtime.Serialization;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -13,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WishList.Controllers;
+using WishList.Repostitory;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -35,11 +38,30 @@ namespace WishList
 
         public void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            //testDbAsync();
+
+
             Runtime.LoggedInUserId = 1;
             Runtime.LoggedInUser = Runtime.TestRepos.GetUsers().FirstOrDefault(u => u.UserId == 1);
             Runtime.SetUserInApp();
             Frame.Navigate(typeof(MainPage)); //mainpage is own wishlists
         }
 
+        public async void testDbAsync() {
+            TodoItem item = new TodoItem
+            {
+                Text = "Awesome item",
+                Complete = false
+            };
+            await App.MobileService.GetTable<TodoItem>().InsertAsync(item);
+        }
+
+    }
+
+    public class TodoItem
+    {
+        public string Id { get; set; }
+        public string Text { get; set; }
+        public bool Complete { get; set; }
     }
 }
