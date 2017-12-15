@@ -36,6 +36,8 @@ namespace WishList.ViewModels
             selectedWishlist.Items.Remove(seletedItem);
         }
 
+        
+
 
 
     }

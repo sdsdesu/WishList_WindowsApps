@@ -68,6 +68,10 @@ namespace WishList
             if (selectedItem != null)
                 selectedItem.ContentTemplate = (DataTemplate)this.Resources["SelectedItemView"];
         }
+        private void SelectionChanged_Sort(object sender, SelectionChangedEventArgs e)
+        {
+            WishlistsViewModel.Sort();
+        }
 
         //NAVIGATION FUNCTIONS
         //OnClick NAVIGATION
