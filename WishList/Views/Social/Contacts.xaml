@@ -26,35 +26,35 @@
         </DataTemplate>
     </Page.Resources>
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="Title" TextWrapping="Wrap" Text="My Wishlists" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="3" Margin="5,5,5,5"/>
+
+        <ScrollViewer Grid.Row="1">
+        <ListBox  x:Name="MyFriends" ItemTemplate="{StaticResource ItemView}" ItemsSource="{Binding}" SelectionChanged="SelectionChanged_Contact" Margin="5,5,5,5"  ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        </ScrollViewer>
+        <Grid Grid.Row="2" x:Name="Buttons">
+            <Grid.ColumnDefinitions >
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="Title" TextWrapping="Wrap" Text="My Wishlists" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="3" Margin="5,5,5,5"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                
+            </Grid.RowDefinitions>
+            <Button Content="Add" Click="AddFriendButton_Click"  Grid.Row="0" Grid.Column="0" Margin="10" Width="100" HorizontalAlignment="Center" x:Name="ButtonAdd" Visibility="Visible"/>
+            <Button Content="View" Click="ViewDetailButton_Click" Grid.Row="0" Grid.Column="1" Margin="10" Width="100" HorizontalAlignment="Center" x:Name="ButtonView" Visibility="Collapsed"/>
         </Grid>
-        <StackPanel >
-            <ListBox x:Name="MyFriends" ItemTemplate="{StaticResource ItemView}" ItemsSource="{Binding}" SelectionChanged="SelectionChanged_Contact" Margin="5,5,5,5"  ScrollViewer.VerticalScrollBarVisibility="Visible">
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="ListBoxItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                    </Style>
-                </ListBox.ItemContainerStyle>
-            </ListBox>
-            <Grid HorizontalAlignment="Center" x:Name="Buttons">
-                <Grid.ColumnDefinitions >
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="100"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Button Content="Add" Click="AddFriendButton_Click"  Grid.Row="0" Grid.Column="0" Margin="10" Width="100" HorizontalAlignment="Center" x:Name="ButtonAdd" Visibility="Visible"/>
-                <Button Content="View" Click="ViewDetailButton_Click" Grid.Row="0" Grid.Column="1" Margin="10" Width="100" HorizontalAlignment="Center" x:Name="ButtonView" Visibility="Collapsed"/>
-            </Grid>
-        </StackPanel>
-    </StackPanel>
+    </Grid>
 </Page>
