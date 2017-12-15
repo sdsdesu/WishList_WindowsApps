@@ -24,7 +24,7 @@ namespace WishList.ViewModels
         public Wishlist SelectedWishlist { get; set; }
         public AddWishlistCommand addWishlist {get;set;}
         public RemoveWishlistCommand removeWishlist { get; set; }
-        private String _sortingMethod;
+        private String _sortingMethod ="Title"; 
         public String SortingMethod { get { return this._sortingMethod; } set { if (_sortingMethod != value) { this._sortingMethod = value; NotifyPropertyChanged(SortingMethod); } } }
         public ObservableCollection<string> SortingMethods { get; set; } 
 
