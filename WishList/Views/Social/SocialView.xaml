@@ -7,23 +7,24 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
 
         <!--<Button x:Name="button" Content="committestbutton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>-->
 
-        <Grid>
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
             <Grid.ColumnDefinitions >
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*                                  "/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
+                <RowDefinition Height="40" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Button Content="View contacts" Click="ViewContacts_Click"  Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Stretch" x:Name="ButtonContacts" />
-            <Button Content="Notifications" Click="ViewNotifications_Click" Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Stretch" x:Name="ButtonNotifications"/>
+            <Button Content="View contacts" Click="ViewContacts_Click"  Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Stretch" x:Name="ButtonContacts" VerticalAlignment="Stretch" />
+            <Button Content="Notifications" Click="ViewNotifications_Click" Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Stretch" x:Name="ButtonNotifications" VerticalAlignment="Stretch"/>
+        <Frame Grid.Row="1" Grid.ColumnSpan="2" x:Name="SocialFrame" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
         </Grid>
-        <Frame x:Name="SocialFrame"/>
+        
 
-    </StackPanel>
+    
 </Page>
