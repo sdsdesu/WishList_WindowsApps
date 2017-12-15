@@ -36,10 +36,8 @@ namespace WishList
             this.InitializeComponent();
             Runtime = RuntimeInfo.Instance;
 
-
             myWishlistItems.Height = Runtime.ScreenHeight/1.2;  //temprary method of scaling by screen
-            myWishlistItems.Width = Runtime.ScreenWidth;
-            
+            myWishlistItems.Width = Runtime.ScreenWidth;     
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -57,6 +55,7 @@ namespace WishList
         //listview layout manipulation based on selected item
         private void SelectionChanged_WishlistItem(object sender, SelectionChangedEventArgs e)
         {
+
             if (myWishlistItems.SelectedItem != null)
             {
                 ButtonRemove.Visibility = Visibility.Visible;
@@ -64,17 +63,19 @@ namespace WishList
 
             var listBox = sender as ListBox;
             //get unselected item
-            var unselectedPerson = e.RemovedItems.FirstOrDefault() as Item;
-            if (unselectedPerson != null)
+            var unselectedItem = e.RemovedItems.FirstOrDefault() as Item;
+            if (unselectedItem != null)
             {
                 //get unselected item container
-                var unselectedItem = listBox.ContainerFromItem(unselectedPerson) as ListBoxItem;
+                var unselectedItemContainer = listBox.ContainerFromItem(unselectedItem) as ListBoxItem;
                 //set ContentTemplate
-                unselectedItem.ContentTemplate = (DataTemplate)this.Resources["ItemView"];
+                if(unselectedItemContainer!=null)//To prevent crash on attempt to unselect removed object
+                    unselectedItemContainer.ContentTemplate = (DataTemplate)this.Resources["ItemView"];
             }
             //get selected item container
-            var selectedItem = listBox.ContainerFromItem(listBox.SelectedItem) as ListBoxItem;
-            selectedItem.ContentTemplate = (DataTemplate)this.Resources["SelectedItemView"];
+            var selectedItemContainer = listBox.ContainerFromItem(listBox.SelectedItem) as ListBoxItem;
+            if (selectedItemContainer != null)//To prevent crash on removing the selected object
+                selectedItemContainer.ContentTemplate = (DataTemplate)this.Resources["SelectedItemView"];
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

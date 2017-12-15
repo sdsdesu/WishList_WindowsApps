@@ -33,7 +33,7 @@ namespace WishList
             this.InitializeComponent();
             Runtime = RuntimeInfo.Instance;
             Runtime.SetBounds(Window.Current.Bounds.Height, Window.Current.Bounds.Width);
-            MainFrame.Navigate(typeof(Wishlists));
+            MainFrame.Navigate(typeof(Wishlists), Runtime.LoggedInUser);
         }
 
         //THERE CAN ONLY BE ONE!
@@ -42,11 +42,11 @@ namespace WishList
         }
         public void ButtonMyProfile_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(typeof(ProfileView));
+            MainFrame.Navigate(typeof(ProfileView), Runtime.LoggedInUser);
         }
         public void ButtonMyWishlists_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(typeof(Wishlists));
+            MainFrame.Navigate(typeof(Wishlists), Runtime.LoggedInUser);
         }
         public void ButtonOtherWishlists_Click(object sender, RoutedEventArgs e)
         {
