@@ -57,6 +57,9 @@ namespace WishList.Models
         public void addContact(User contact) {
             //AppController gets given email string, looks in database for user retrieves it and calls this function
             Contacts.Add(contact);
+            foreach (Wishlist w in contact.MyWishlists) {
+                OthersWishlists.Add(w);
+            }
         }
 
         public void addNotification(Message m) {

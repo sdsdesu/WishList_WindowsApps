@@ -56,7 +56,7 @@ namespace WishList
         private void SelectionChanged_WishlistItem(object sender, SelectionChangedEventArgs e)
         {
 
-            if (myWishlistItems.SelectedItem != null)
+            if (myWishlistItems.SelectedItem != null && WishlistViewModel.selectedWishlist.Owner == Runtime.LoggedInUser)
             {
                 ButtonRemove.Visibility = Visibility.Visible;
             }
@@ -69,13 +69,31 @@ namespace WishList
                 //get unselected item container
                 var unselectedItemContainer = listBox.ContainerFromItem(unselectedItem) as ListBoxItem;
                 //set ContentTemplate
-                if(unselectedItemContainer!=null)//To prevent crash on attempt to unselect removed object
+                if (unselectedItemContainer != null)//To prevent crash on attempt to unselect removed object
+                {
                     unselectedItemContainer.ContentTemplate = (DataTemplate)this.Resources["ItemView"];
+                    DetailItemBuyerButton.Visibility = Visibility.Collapsed;
+                }
             }
             //get selected item container
             var selectedItemContainer = listBox.ContainerFromItem(listBox.SelectedItem) as ListBoxItem;
             if (selectedItemContainer != null)//To prevent crash on removing the selected object
+            {
                 selectedItemContainer.ContentTemplate = (DataTemplate)this.Resources["SelectedItemView"];
+            }
+            if(WishlistViewModel.selectedWishlist.Owner != Runtime.LoggedInUser)
+            {
+                DetailItemBuyerButton.Visibility = Visibility.Visible;
+                if (WishlistViewModel.seletedItem != null && WishlistViewModel.seletedItem.Buyer != null)
+                {
+                    DetailItemBuyerButton.Content = WishlistViewModel.seletedItem.Buyer.Firstname;
+                }
+                else
+                {
+                    DetailItemBuyerButton.Content = "Buy item";
+                }
+            }
+
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -85,6 +103,13 @@ namespace WishList
             {
                 WishlistViewModel = new WishlistViewModel(selectedWishlist);
                 DataContext = WishlistViewModel;
+                if (selectedWishlist.Owner != Runtime.LoggedInUser) {
+                    ButtonAdd.Visibility = Visibility.Collapsed;
+                    ButtonAddBuyer.Visibility = Visibility.Collapsed;
+                    ButtonRemove.Visibility = Visibility.Collapsed;
+
+
+                }
             }
             else {
                 throw new ArgumentNullException("Always pass a wishlist to this page");

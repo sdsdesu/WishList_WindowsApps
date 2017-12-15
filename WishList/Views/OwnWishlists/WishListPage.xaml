@@ -20,6 +20,7 @@
         <DataTemplate x:Key="SelectedItemView" x:DataType="src:Item">
             <StackPanel Width="Auto" HorizontalAlignment="Stretch">
                 <TextBlock Margin="12, 15, 12, 0" FontSize="18" Text="{x:Bind Path=Name, Mode=OneWay}" />
+
                 <StackPanel>
                     <TextBlock Margin="12, 15, 12, 0" Text="{x:Bind Path=Category, Mode=OneWay}" />
                 </StackPanel>
@@ -32,6 +33,7 @@
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -56,9 +58,10 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Button Grid.Row="0" Grid.Column="0" Margin="0,0,0,10" Width="110" HorizontalAlignment="Center" Content="Add Item" Click="Button_Click" VerticalAlignment="Bottom"  />
-                <Button Grid.Row="0" Grid.Column="1" Margin="10" Width="110" HorizontalAlignment="Center" Content="Add Buyer(s)"  x:Name="ButtonAddBuyer" Click="ButtonAddBuyers_Click"/>
-                <Button Command="{Binding removeItemCommand}" CommandParameter="Untitled" Grid.Row="0" Grid.Column="2" Margin="10" Width="110" HorizontalAlignment="Center" Content="Remove"  x:Name="ButtonRemove" Visibility="Collapsed"/>
+                <Button x:Name="ButtonAdd" Grid.Row="0" Grid.Column="0" Margin="0,0,0,10" Width="110" HorizontalAlignment="Center" Content="Add Item" Click="Button_Click" VerticalAlignment="Bottom"   Visibility="Visible"/>
+                <Button x:Name="ButtonAddBuyer" Grid.Row="0" Grid.Column="1" Margin="10" Width="110" HorizontalAlignment="Center" Content="Add Buyer(s)" Click="ButtonAddBuyers_Click"  Visibility="Visible"/>
+                <Button x:Name="ButtonRemove" Command="{Binding removeItemCommand}" CommandParameter="Untitled" Grid.Row="0" Grid.Column="2" Margin="10" Width="110" HorizontalAlignment="Center" Content="Remove" Visibility="Collapsed"/>
+                <Button x:Name="DetailItemBuyerButton" Content="{Binding seletedItem, Mode=TwoWay}" Grid.Row="1" Grid.ColumnSpan="3" Margin="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Visibility="Collapsed"></Button>
             </Grid>
         </StackPanel>
     </StackPanel>

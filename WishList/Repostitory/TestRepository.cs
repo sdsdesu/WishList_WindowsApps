@@ -25,19 +25,19 @@ namespace WishList.Repostitory
             UserTwo.UserId = 2;
             UserThree.UserId = 3;
 
-            UserOne.addContact(UserThree);
-            UserTwo.addContact(UserOne);
-            UserTwo.addContact(UserThree);
+
 
 
             Wishlist wishlist1 = new Wishlist(UserOne, "Fuck da police", "Kerstmis", new DateTime(2018, 2, 28));
             Wishlist wishlist2 = new Wishlist(UserTwo, "Gimme stuff", "Birthday", new DateTime(2017, 11, 25));
             Wishlist wishlist3 = new Wishlist(UserTwo, "Jolly fat man", "sinterklaas", new DateTime(2017, 12, 25));
             Wishlist wishlist4 = new Wishlist(UserOne, "Nihilism", "barbecue", new DateTime(2019, 12, 30));
+            wishlist3.IsOpen = false;
+            wishlist2.IsOpen = true;
 
             wishlist1.addBuyer(UserThree);
-            wishlist2.addBuyer(UserOne);
             wishlist2.addBuyer(UserThree);
+            wishlist3.addBuyer(UserOne);
 
             Item gift1 = new Item("Gameboy", Category.Tech, "Old school tech");
             Item gift2 = new Item("Lawn mower", Category.Garden, "Why the hell not");
@@ -59,13 +59,23 @@ namespace WishList.Repostitory
             UserOne.addWishlist(wishlist4);
             UserTwo.addWishlist(wishlist2);
             UserTwo.addWishlist(wishlist3);
+            UserThree.addWishlist(wishlist1);
+            UserThree.addWishlist(wishlist4);
+            UserThree.addWishlist(wishlist2);
+            UserThree.addWishlist(wishlist3);
 
             UserOne.FillFavorites(fav1);
             UserThree.FillFavorites(fav2);
 
+            UserOne.addContact(UserThree);
+            UserTwo.addContact(UserOne);
+            UserTwo.addContact(UserThree);
+
             Users.Add(UserOne);
             Users.Add(UserTwo);
             Users.Add(UserThree);
+
+
 
         }
 

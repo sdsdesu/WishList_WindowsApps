@@ -43,6 +43,7 @@ namespace WishList.Models
         {
             Title = title;
             Occasion = occasion;
+            IsOpen = false;
         }
         public Wishlist(User owner , string title, string occasion, DateTime deadline) : this(title, occasion)
         {
