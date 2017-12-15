@@ -30,15 +30,19 @@
             </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>
-            <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                
+            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Frame Grid.Row="0" x:Name="MainFrame" HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch" />
+
                 <!--<Button x:Name="button" Content="committestbutton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>-->
-               
-                    <Frame x:Name="MainFrame"/>
-                
-            </StackPanel>
+
+            </Grid>
         </SplitView.Content>
-        
+
     </SplitView>
-    
+
 </Page>
