@@ -43,7 +43,7 @@ namespace WishList.ViewModels
             Runtime = RuntimeInfo.Instance;
 
             activeUser = user;
-            SortingMethods = new ObservableCollection<string>() { "Title", "Deadline", "Participating" };
+            SortingMethods = new ObservableCollection<string>() { "Title", "Deadline", "Open" };
           
             //check if user same as logged in user
             if (user == Runtime.LoggedInUser) {
@@ -103,7 +103,7 @@ namespace WishList.ViewModels
             {
                 sortWishlistsByDeadline();
             }
-            else if (SortingMethod == "Participating")
+            else if (SortingMethod == "Open")
             {
                 sortWishlistsByOpen();
             }
@@ -121,8 +121,8 @@ namespace WishList.ViewModels
         public void sortWishlistsByOpen()
         {
             //only called when viewing wishlists of friends
-            activeUser.MyWishlists = new ObservableCollection<Wishlist>(activeUser.MyWishlists.OrderBy(t => t.IsOpen)); // put it in so user can see which of his own wishlists he has set open
-            activeUser.OthersWishlists = new ObservableCollection<Wishlist>(activeUser.OthersWishlists.OrderBy(t => t.IsOpen));      
+            activeUser.MyWishlists = new ObservableCollection<Wishlist>(activeUser.MyWishlists.OrderByDescending(t => t.IsOpen)); // put it in so user can see which of his own wishlists he has set open
+            activeUser.OthersWishlists = new ObservableCollection<Wishlist>(activeUser.OthersWishlists.OrderByDescending(t => t.IsOpen));      
         }
 
 
