@@ -18,9 +18,9 @@
         <!--  details expand template  -->
         <DataTemplate x:Key="SelectedItemView" x:DataType="src:Wishlist">
             <StackPanel Width="Auto" HorizontalAlignment="Stretch">
-                <TextBlock Margin="12, 15, 12, 0" FontSize="18" Text="{x:Bind Path=Title, Mode=OneWay}" />
+                <TextBlock Margin="10, 15, 12, 0" FontSize="18" Text="{x:Bind Path=Title, Mode=OneWay}" />
                 <StackPanel>
-                    <TextBlock Margin="12, 15, 12, 0" Text="{x:Bind Path=DeadlineS, Mode=OneWay}" />
+                    <TextBlock Margin="10, 15, 12, 0" Text="{x:Bind Path=DeadlineS, Mode=OneWay}" />
                 </StackPanel>
             </StackPanel>
         </DataTemplate>                 
