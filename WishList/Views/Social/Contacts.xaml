@@ -12,16 +12,19 @@
         <!--  brief information template  -->
         <DataTemplate x:Key="ItemView" x:DataType="src:User">
             <StackPanel Width="Auto" HorizontalAlignment="Stretch">
-                <StackPanel Width="Auto" HorizontalAlignment="Stretch">
-                    <TextBlock Margin="12, 15, 12, 0" FontSize="18" Text="{x:Bind Path=Firstname, Mode=OneWay}" />
-                    <TextBlock Margin="12, 15, 12, 0" FontSize="18" Text="{x:Bind Path=Lastname, Mode=OneWay}" />
+                <StackPanel Orientation="Horizontal" Width="Auto" HorizontalAlignment="Stretch">
+                    <TextBlock Margin="10, 5, 0, 0" FontSize="18" Text="{x:Bind Path=Firstname, Mode=OneWay}" />
+                    <TextBlock Margin="5, 5, 0, 0" FontSize="18" Text="{x:Bind Path=Lastname, Mode=OneWay}" />
                 </StackPanel>
             </StackPanel>
         </DataTemplate>
         <!--  details expand template  -->
         <DataTemplate x:Key="SelectedItemView" x:DataType="src:User">
             <StackPanel Width="Auto" HorizontalAlignment="Stretch">
-                <TextBlock Margin="12, 15, 12, 0" FontSize="18" Text="{x:Bind Path=Firstname, Mode=OneWay}" />
+                <StackPanel Orientation="Horizontal" Width="Auto" HorizontalAlignment="Stretch">
+                    <TextBlock Margin="10, 5, 0, 0" FontSize="18" Text="{x:Bind Path=Firstname, Mode=OneWay}" />
+                    <TextBlock Margin="5, 5, 0, 0" FontSize="18" Text="{x:Bind Path=Lastname, Mode=OneWay}" />
+                </StackPanel>
                 <StackPanel>
                     <TextBlock Margin="12, 15, 12, 0" Text="{x:Bind Path=Email, Mode=OneWay}" />
                 </StackPanel>

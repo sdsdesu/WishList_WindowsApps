@@ -22,7 +22,6 @@ namespace WishList.ViewModels
 
         public User activeUser { get; set; }
         public Wishlist SelectedWishlist { get; set; }
-        public AddWishlistCommand addWishlist {get;set;}
         public RemoveWishlistCommand removeWishlist { get; set; }
         private String _sortingMethod ="Title"; 
         public String SortingMethod { get { return this._sortingMethod; } set { if (_sortingMethod != value) { this._sortingMethod = value; NotifyPropertyChanged(SortingMethod); } } }
@@ -49,7 +48,6 @@ namespace WishList.ViewModels
             //check if user same as logged in user
             if (user == Runtime.LoggedInUser) {
                 //only logged in user can do this
-                addWishlist = new AddWishlistCommand();
                 removeWishlist = new RemoveWishlistCommand(this);
             }
 

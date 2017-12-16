@@ -97,9 +97,10 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Repostitory\ToDoItem.cs" />
-    <Compile Include="ViewModels\Commands\AddWishlistCommand.cs" />
+    <Compile Include="ViewModels\Commands\AcceptMessageCommand.cs" />
     <Compile Include="ViewModels\Commands\AddWishlistItemCommand.cs" />
     <Compile Include="ViewModels\Commands\BuyItemCommand.cs" />
+    <Compile Include="ViewModels\Commands\DenyMessageCommand.cs" />
     <Compile Include="ViewModels\Commands\RemoveWishlistCommand.cs" />
     <Compile Include="ViewModels\Commands\RemoveWishlistItemCommand.cs" />
     <Compile Include="ViewModels\ContactViewModel.cs" />
