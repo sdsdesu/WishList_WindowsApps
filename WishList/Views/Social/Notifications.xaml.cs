@@ -46,23 +46,19 @@ namespace WishList
 
             var listBox = sender as ListBox;
             //get unselected item
-            var unselectedItem = e.RemovedItems.FirstOrDefault() as Item;
+            var unselectedItem = e.RemovedItems.FirstOrDefault() as Message;
             if (unselectedItem != null)
             {
                 //get unselected item container
                 var unselectedItemContainer = listBox.ContainerFromItem(unselectedItem) as ListBoxItem;
                 //set ContentTemplate
-                if (unselectedItemContainer != null)//To prevent crash on attempt to unselect removed object
-                {
-                    unselectedItemContainer.ContentTemplate = (DataTemplate)this.Resources["ItemView"];
-                }
+                unselectedItemContainer.ContentTemplate = (DataTemplate)this.Resources["ItemView"];
+                
             }
             //get selected item container
             var selectedItemContainer = listBox.ContainerFromItem(listBox.SelectedItem) as ListBoxItem;
-            if (selectedItemContainer != null)//To prevent crash on removing the selected object
-            {
-                selectedItemContainer.ContentTemplate = (DataTemplate)this.Resources["SelectedItemView"];
-            }
+            selectedItemContainer.ContentTemplate = (DataTemplate)this.Resources["SelectedItemView"];
+
 
         }
 
