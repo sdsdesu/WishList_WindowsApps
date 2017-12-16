@@ -72,8 +72,11 @@ namespace WishList.ViewModels
         public bool CheckIfAlreadyRequested()
         {
             Message request = new Message(activeUser, SelectedWishlist.Owner, false, SelectedWishlist);
-            if (SelectedWishlist.Owner.Notifications.FirstOrDefault(r => r.MessageContent == request.MessageContent) != null) //FirstOrDefaut used to return null when not found
+            Message FoundMessage = SelectedWishlist.Owner.Notifications.FirstOrDefault(r => r.MessageContent == request.MessageContent);
+            if (FoundMessage != null) //FirstOrDefaut used to return null when not found
             {
+                if (FoundMessage.IsAccepted)
+                    return false;
                 return true; //message found so already requested
             }
             else {
@@ -81,6 +84,8 @@ namespace WishList.ViewModels
             }
 
         }
+
+
         public void JoinWishlist() {
             if (!SelectedWishlist.Buyers.Contains(activeUser)) { //if not already a buyer join into wishlist
                 SelectedWishlist.Buyers.Add(activeUser);
