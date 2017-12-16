@@ -27,12 +27,13 @@ namespace WishList.ViewModels
 
 
         public void AcceptRequest() {
-
+            selectedMessage.Sender.MyWishlists.FirstOrDefault(w => w == selectedMessage.RelatedWishlist).addBuyer(activeUser);
+            selectedMessage.IsAccepted = true;
         }
 
         public void DenyRequest()
         {
-
+            selectedMessage.IsAccepted = true;  //is accepted means that the message was responded to with noting else done
         }
 
     }
