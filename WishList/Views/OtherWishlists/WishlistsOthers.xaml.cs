@@ -99,6 +99,7 @@ namespace WishList
             //Show wishlist to user if user is member of wishlist or if the wishlist is open
             if (WishlistsViewModel.SelectedWishlist.IsOpen || WishlistsViewModel.SelectedWishlist.Buyers.Contains(Runtime.LoggedInUser))
             {
+                WishlistsViewModel.JoinWishlist();  //If you are not yet allready in list of buyers you get added automaticly, this is only for open wishllists
                 Frame.Navigate(typeof(WishListPage), WishlistsViewModel.SelectedWishlist); 
             }
             else {
@@ -106,7 +107,6 @@ namespace WishList
                 ButtonToWishlist.Content = "Request has been sent."; //need a way to keep button nonclickable until request recieved and accepted
                 ButtonToWishlist.IsEnabled = false; //Disable button
             }
-
         }
 
 

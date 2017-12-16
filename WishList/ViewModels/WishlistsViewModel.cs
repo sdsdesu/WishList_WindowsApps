@@ -83,6 +83,13 @@ namespace WishList.ViewModels
             }
 
         }
+        public void JoinWishlist() {
+            if (!SelectedWishlist.Buyers.Contains(activeUser)) { //if not already a buyer join into wishlist
+                SelectedWishlist.Buyers.Add(activeUser);
+            }
+        }
+
+
         //Manipulation functions
         public void Sort() {
             if (SortingMethod == "Title")
