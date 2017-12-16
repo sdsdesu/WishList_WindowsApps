@@ -18,8 +18,8 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Visibility="Visible" VerticalAlignment="Bottom">
                     <TextBlock  Margin="10, 0, 0, 0"  FontSize="18" Text="Bought by: " HorizontalAlignment="Left"/>
-                    <TextBlock  Margin="5, 0, 0, 0" FontSize="18" Text="{x:Bind Path=Buyer.Firstname, Mode=OneWay}" HorizontalAlignment="Left"/>
-                    <TextBlock  Margin="0, 0, 0, 0" FontSize="18" Text="{x:Bind Path=Buyer.Lastname, Mode=OneWay}" HorizontalAlignment="Left"/>
+                    <TextBlock  Margin="5, 0, 0, 0" FontSize="18" Text="{x:Bind Path=Buyer.Firstname, Mode=TwoWay}" HorizontalAlignment="Left"/>
+                    <TextBlock  Margin="5, 0, 0, 0" FontSize="18" Text="{x:Bind Path=Buyer.Lastname, Mode=TwoWay}" HorizontalAlignment="Left"/>
                 </StackPanel>
             </StackPanel>
 
@@ -47,8 +47,8 @@
                     </StackPanel>
                     <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Visibility="Visible" VerticalAlignment="Bottom">
                         <TextBlock  Margin="10, 0, 0, 0"  FontSize="18" Text="Bought by: " HorizontalAlignment="Left"/>
-                        <TextBlock  Margin="5, 0, 0, 0" FontSize="18" Text="{x:Bind Path=Buyer.Firstname, Mode=OneWay}" HorizontalAlignment="Left"/>
-                        <TextBlock  Margin="0, 0, 0, 0" FontSize="18" Text="{x:Bind Path=Buyer.Lastname, Mode=OneWay}" HorizontalAlignment="Left"/>
+                        <TextBlock  Margin="5, 0, 0, 0" FontSize="18" Text="{x:Bind Path=Buyer.Firstname, Mode=TwoWay}" HorizontalAlignment="Left"/>
+                        <TextBlock  Margin="5, 0, 0, 0" FontSize="18" Text="{x:Bind Path=Buyer.Lastname, Mode=TwoWay}" HorizontalAlignment="Left"/>
                     </StackPanel>
                     <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Bottom">
                         <TextBlock  Margin="10, 0, 0, 0"  FontSize="18" Text="Category: "/>
@@ -98,7 +98,7 @@
                 <Button x:Name="ButtonAdd" Grid.Row="0" Grid.Column="0" Margin="0,0,0,10" Width="110" HorizontalAlignment="Center" Content="Add Item" Click="Button_Click" VerticalAlignment="Bottom"   Visibility="Visible"/>
                 <Button x:Name="ButtonAddBuyer" Grid.Row="0" Grid.Column="1" Margin="10" Width="110" HorizontalAlignment="Center" Content="Add Buyer(s)" Click="ButtonAddBuyers_Click"  Visibility="Visible"/>
                 <Button x:Name="ButtonRemove" Command="{Binding removeItemCommand}" CommandParameter="Untitled" Grid.Row="0" Grid.Column="2" Margin="10" Width="110" HorizontalAlignment="Center" Content="Remove" Visibility="Collapsed"/>
-                <Button x:Name="DetailItemBuyerButton" Content="{Binding seletedItem, Mode=TwoWay}" Grid.Row="1" Grid.ColumnSpan="3" Margin="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Visibility="Collapsed"></Button>
+                <Button x:Name="DetailItemBuyerButton" Content="{Binding seletedItem, Mode=TwoWay}" Command="{Binding buyItemCommand}" Grid.Row="1" Grid.ColumnSpan="3" Margin="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Visibility="Collapsed"></Button>
             </Grid>
         </StackPanel>
     </StackPanel>

@@ -79,7 +79,6 @@ namespace WishList
                     ButtonToWishlist.Content = "Request to join Wishlist";
                     ButtonToWishlist.IsEnabled = true; //re enable button
                 }
-                
             }
         }
 
@@ -108,9 +107,6 @@ namespace WishList
                 ButtonToWishlist.IsEnabled = false; //Disable button
             }
         }
-
-
-
 
     }
 }

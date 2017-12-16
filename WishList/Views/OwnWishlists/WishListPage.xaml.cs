@@ -83,13 +83,15 @@ namespace WishList
             }
             if(WishlistViewModel.selectedWishlist.Owner != Runtime.LoggedInUser)
             {
-                DetailItemBuyerButton.Visibility = Visibility.Visible;
-                if (WishlistViewModel.seletedItem != null && WishlistViewModel.seletedItem.Buyer != null)
+                
+                if (WishlistViewModel.seletedItem.Buyer != null || WishlistViewModel.CheckUserAlreadyBought())//as long as item has been bought no need to show buybutton  or if active user has bought an item in the wishlist already
                 {
-                    DetailItemBuyerButton.Content = WishlistViewModel.seletedItem.Buyer.Firstname;
+                    DetailItemBuyerButton.Visibility = Visibility.Collapsed;
+                    //DetailItemBuyerButton.Content = WishlistViewModel.seletedItem.Buyer.Firstname;  //possible expansion show profile of whoever bought it
                 }
                 else
                 {
+                    DetailItemBuyerButton.Visibility = Visibility.Visible;
                     DetailItemBuyerButton.Content = "Buy item";
                 }
             }

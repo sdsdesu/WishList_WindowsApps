@@ -16,5 +16,7 @@ namespace WishList.ViewModels
         {
             selectedWishlist = w;
         }
+
+
     }
 }
