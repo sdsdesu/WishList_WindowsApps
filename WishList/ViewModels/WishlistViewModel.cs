@@ -16,6 +16,7 @@ namespace WishList.ViewModels
         RuntimeInfo Runtime;
 
         public User activeUser { get; set; }
+        public User selectedUser { get; set; }  //for profileview
         public Wishlist selectedWishlist { get; set; }
         public Item seletedItem { get; set; }
         public RemoveWishlistItemCommand removeItemCommand { get; set; }

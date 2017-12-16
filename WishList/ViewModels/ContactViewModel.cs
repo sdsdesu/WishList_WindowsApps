@@ -9,12 +9,14 @@ namespace WishList.ViewModels
 {
     class ContactViewModel
     {
-        public Wishlist selectedWishlist { get; set; }
+        public User activeUser { get; set; }
+        public User selectedContact { get; set; }
 
 
-        public ContactViewModel(Wishlist w)
+
+        public ContactViewModel(User u)
         {
-            selectedWishlist = w;
+            activeUser = u;
         }
 
 

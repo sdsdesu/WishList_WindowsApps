@@ -34,11 +34,11 @@ namespace WishList.Views.OwnWishlists
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
-            Wishlist w = e.Parameter as Wishlist;
+            User u = e.Parameter as User;
             //Check if passed
-            if (w != null)
+            if (u != null)
             {
-                ContactViewModel = new ContactViewModel(w);    //pass a selected wishlist to model so both contacts and wishlist can get updated
+                ContactViewModel = new ContactViewModel(u);    //pass a selected wishlist to model so both contacts and wishlist can get updated
             }
 
 

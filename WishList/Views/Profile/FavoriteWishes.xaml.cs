@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WishList.Controllers;
 using WishList.Models;
+using WishList.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,8 +27,8 @@ namespace WishList.Views.Profile
     public sealed partial class FavoriteWishes : Page
     {
         RuntimeInfo Runtime { get; }
-        Item SelectedWishlistItem { get; set; }
-        public ObservableCollection<Item> FavoriteItems = new ObservableCollection<Item>();
+        WishlistViewModel WishlistViewModel { get; set; }
+
 
         public FavoriteWishes()
         {
@@ -35,15 +36,8 @@ namespace WishList.Views.Profile
             this.InitializeComponent();
             Runtime = RuntimeInfo.Instance;
 
-            FavoriteGifts.Height = Runtime.ScreenHeight/1.5;
-            FavoriteGifts.Width = Runtime.ScreenWidth;
-
-            foreach (Item i in Runtime.LoggedInUser.Favorites.Items)
-            {
-                FavoriteItems.Add(i);
-            }
-            FavoriteGifts.DataContext = FavoriteItems;
-
+            FavoriteGifts.Height = Runtime.ScreenHeight / 1.5;
+            FavoriteGifts.Width = Runtime.ScreenWidth - 40;
 
         }
 
@@ -51,7 +45,7 @@ namespace WishList.Views.Profile
         {
             if (FavoriteGifts.SelectedItem != null)
             {
-                SelectedWishlistItem = (Item)FavoriteGifts.SelectedItem;
+                WishlistViewModel.seletedItem = (Item)FavoriteGifts.SelectedItem;
             }
 
             var listBox = sender as ListBox;
@@ -71,17 +65,8 @@ namespace WishList.Views.Profile
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            User Friend = e.Parameter as User;
-            if (Friend != null)
-            {
-                FavoriteItems = new ObservableCollection<Item>();
-                foreach (Item i in Friend.Favorites.Items)
-                {
-                    FavoriteItems.Add(i);
-                }
-                FavoriteGifts.DataContext = FavoriteItems;
-            }
-
+            WishlistViewModel = e.Parameter as WishlistViewModel;
+            DataContext = WishlistViewModel;
         }
     }
 }

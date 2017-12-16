@@ -17,12 +17,12 @@ namespace WishList.Models
         public User Owner { get; set; }                    //user that made the wishlist
         public DateTime Deadline { get; set; }         //deadline of event, when it takes place, maybe allow for days before so everything is in order before the deadline
         public string DeadlineS { get; set; }
-        private List<User> _buyers = new List<User>();
+        private ObservableCollection<User> _buyers = new ObservableCollection<User>();
         //private List<Item> _items = new List<Item>();
         private ObservableCollection<Item> _items = new ObservableCollection<Item>();
         public string Occasion { get; set; }
 
-        public List<User> Buyers { get { return _buyers; } set { _buyers = value; NotifyPropertyChanged("Buyers"); } }              //Users invited to wishlists
+        public ObservableCollection<User> Buyers { get { return _buyers; } set { _buyers = value; NotifyPropertyChanged("Buyers"); } }              //Users invited to wishlists
         public ObservableCollection<Item> Items { get { return _items; } set {_items = value; NotifyPropertyChanged("Items"); } }
         public Boolean IsOpen { get; set; }
 
