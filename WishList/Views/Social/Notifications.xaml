@@ -28,39 +28,10 @@
                     <TextBlock  Margin="5, 0, 0, 0" FontSize="18" Text="{x:Bind Path=Sender.Firstname, Mode=TwoWay}" HorizontalAlignment="Left"/>
                     <TextBlock  Margin="5, 0, 0, 0" FontSize="18" Text="{x:Bind Path=Sender.Lastname, Mode=TwoWay}" HorizontalAlignment="Left"/>
                 </StackPanel>
-              <!--   <Grid HorizontalAlignment="Stretch">
-                    
-                    <Grid.ColumnDefinitions >
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Orientation="Horizontal">
-                        <HyperlinkButton NavigateUri="{x:Bind WebLink}">
-                            <Image Margin="0, 15, 12, 0" Width="100" Height="120" Source="{x:Bind Path=Image, Mode=OneWay}" />
-                        </HyperlinkButton>
-                    </StackPanel>
-                    <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Visibility="Visible" VerticalAlignment="Bottom">
-                        <TextBlock  Margin="10, 0, 0, 0"  FontSize="18" Text="Bought by: " HorizontalAlignment="Left"/>
-                        <TextBlock  Margin="5, 0, 0, 0" FontSize="18" Text="{x:Bind Path=Buyer.Firstname, Mode=TwoWay}" HorizontalAlignment="Left"/>
-                        <TextBlock  Margin="5, 0, 0, 0" FontSize="18" Text="{x:Bind Path=Buyer.Lastname, Mode=TwoWay}" HorizontalAlignment="Left"/>
-                    </StackPanel>
-                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Bottom">
-                        <TextBlock  Margin="10, 0, 0, 0"  FontSize="18" Text="Category: "/>
-                        <TextBlock  Margin="10, 0, 0, 0"  FontSize="18" Text="{x:Bind Path=Category, Mode=OneWay}" />
-                    </StackPanel>                    
-                   
-
-
-                </Grid>
-
-                <TextBlock Margin="10, 10, 10, 2" FontSize="18" Text="Description: "/>
+                <TextBlock  Margin="10, 0, 0, 0"  FontSize="18" Text="Message: " HorizontalAlignment="Left"/>
                 <Border BorderBrush="Gray" BorderThickness="2" Grid.Row="0" Margin="0, 0, 10, 10">
-                    <TextBlock TextWrapping="Wrap"  Margin="10, 10, 10, 10" FontSize="18" Text="{x:Bind Path=Description, Mode=OneWay}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                </Border>  -->
+                    <TextBlock TextWrapping="Wrap"  Margin="10, 10, 10, 10" FontSize="18" Text="{x:Bind Path=MessageContent, Mode=OneWay}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </Border>                 
             </StackPanel> 
         </DataTemplate>
     </Page.Resources>
