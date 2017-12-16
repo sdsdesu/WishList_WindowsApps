@@ -67,10 +67,19 @@ namespace WishList
             if (WishlistsViewModel.SelectedWishlist.IsOpen || WishlistsViewModel.SelectedWishlist.Buyers.Contains(Runtime.LoggedInUser))
             {
                 ButtonToWishlist.Content = "View Wishlist";
+                ButtonToWishlist.IsEnabled = true; //re enable button
             }
             else
             {
-                ButtonToWishlist.Content = "Request to join Wishlist";
+                if (WishlistsViewModel.CheckIfAlreadyRequested()) {
+                    ButtonToWishlist.Content = "Request to join in progress";
+                    ButtonToWishlist.IsEnabled = false; //Disable button
+                }
+                else {
+                    ButtonToWishlist.Content = "Request to join Wishlist";
+                    ButtonToWishlist.IsEnabled = true; //re enable button
+                }
+                
             }
         }
 
@@ -90,10 +99,12 @@ namespace WishList
             //Show wishlist to user if user is member of wishlist or if the wishlist is open
             if (WishlistsViewModel.SelectedWishlist.IsOpen || WishlistsViewModel.SelectedWishlist.Buyers.Contains(Runtime.LoggedInUser))
             {
-                Frame.Navigate(typeof(WishListPage), WishlistsViewModel.SelectedWishlist); // replace SelectedWishlist with WishlistsViewModel.SelectedWishlist
+                Frame.Navigate(typeof(WishListPage), WishlistsViewModel.SelectedWishlist); 
             }
             else {
-                //send request to wishlist owner to join
+                WishlistsViewModel.RequestToJoin();
+                ButtonToWishlist.Content = "Request has been sent."; //need a way to keep button nonclickable until request recieved and accepted
+                ButtonToWishlist.IsEnabled = false; //Disable button
             }
 
         }

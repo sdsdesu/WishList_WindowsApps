@@ -35,37 +35,27 @@ namespace WishList.ViewModels
             if (null != PropertyChanged)
             {
                 Sort();
-                PropertyChanged(this, new PropertyChangedEventArgs("activeUser"));
+                PropertyChanged(this, new PropertyChangedEventArgs("activeUser"));//set to active user so the list updates
             }
         }
 
-
-
+        //Constructor function
         public WishlistsViewModel(User user){
             Runtime = RuntimeInfo.Instance;
 
             activeUser = user;
-            //SortingMethod = "Title";
             SortingMethods = new ObservableCollection<string>() { "Title", "Deadline", "Participating" };
           
-
-            /*
-            foreach (User friend in activeUser.Contacts) {
-                foreach (Wishlist wishlist in friend.MyWishlists) {
-                    WishlistsFromFriends.Add(wishlist);
-                }
-            }
-            */
-
             //check if user same as logged in user
             if (user == Runtime.LoggedInUser) {
                 //only logged in user can do this
                 addWishlist = new AddWishlistCommand();
                 removeWishlist = new RemoveWishlistCommand(this);
             }
+
         }
 
-
+        //Button action functions
         public void AddWishlist(Wishlist wishlist)
         {
             activeUser.MyWishlists.Add(wishlist);
@@ -77,6 +67,23 @@ namespace WishList.ViewModels
             activeUser.MyWishlists.Remove(SelectedWishlist);
         }
 
+        public void RequestToJoin() {
+            Message request = new Message(activeUser, SelectedWishlist.Owner, false, SelectedWishlist); //create message
+            SelectedWishlist.Owner.addNotification(request);    //add message to wishlist owner
+        }
+        public bool CheckIfAlreadyRequested()
+        {
+            Message request = new Message(activeUser, SelectedWishlist.Owner, false, SelectedWishlist);
+            if (SelectedWishlist.Owner.Notifications.FirstOrDefault(r => r.MessageContent == request.MessageContent) != null) //FirstOrDefaut used to return null when not found
+            {
+                return true; //message found so already requested
+            }
+            else {
+                return false; //message not found allow to be requested
+            }
+
+        }
+        //Manipulation functions
         public void Sort() {
             if (SortingMethod == "Title")
             {
@@ -107,6 +114,7 @@ namespace WishList.ViewModels
             activeUser.MyWishlists = new ObservableCollection<Wishlist>(activeUser.MyWishlists.OrderBy(t => t.IsOpen)); // put it in so user can see which of his own wishlists he has set open
             activeUser.OthersWishlists = new ObservableCollection<Wishlist>(activeUser.OthersWishlists.OrderBy(t => t.IsOpen));      
         }
+
 
     }
 }
