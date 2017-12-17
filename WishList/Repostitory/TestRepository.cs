@@ -71,6 +71,8 @@ namespace WishList.Repostitory
             UserThree.FillFavorites(fav2);
 
             UserOne.addContact(UserThree);
+            UserOne.addContact(UserTwo);
+            UserOne.addContact(UserOne);
             UserTwo.addContact(UserOne);
             UserTwo.addContact(UserThree);
 

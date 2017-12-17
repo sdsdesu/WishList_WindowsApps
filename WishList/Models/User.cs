@@ -16,7 +16,7 @@ namespace WishList.Models
         public string Lastname { get; set; }
         public string Email { get; set; }                  //email of user, can be used to add user to contacts/friendlist
         public ObservableCollection<User> Contacts { get; set; }           //list of people the user can add to his wishlist (get from phone contact list or facebook account)
-        public List<Message> Notifications { get; set; }
+        public ObservableCollection<Message> Notifications { get; set; }
         public ObservableCollection<Wishlist> MyWishlists { get; set; }    //Wishlists of the user - functionality(wishlist stays for owner even after deadline, and all the buyers become visible to him)
         public ObservableCollection<Wishlist> OthersWishlists { get; set; }//Wishlists currently participating in
         public Wishlist Favorites { get; set; }            //Single wishlist containing gift that fit in any occasion, like favorite flowers, choclate, candy, wine, giftcards of specific stores, favorite authors for books...
@@ -31,7 +31,7 @@ namespace WishList.Models
             Lastname = lastname;
             Email = email;
             Contacts = new ObservableCollection<User>();
-            Notifications = new List<Message>();
+            Notifications = new ObservableCollection<Message>();
             MyWishlists = new ObservableCollection<Wishlist>();
             OthersWishlists = new ObservableCollection<Wishlist>();
             Favorites = new Wishlist("Mijn favoriete cadeau's", "General");

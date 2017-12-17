@@ -98,6 +98,7 @@
     </Compile>
     <Compile Include="Repostitory\ToDoItem.cs" />
     <Compile Include="ViewModels\Commands\AcceptMessageCommand.cs" />
+    <Compile Include="ViewModels\Commands\AddBuyersCommand.cs" />
     <Compile Include="ViewModels\Commands\AddWishlistItemCommand.cs" />
     <Compile Include="ViewModels\Commands\BuyItemCommand.cs" />
     <Compile Include="ViewModels\Commands\DenyMessageCommand.cs" />
