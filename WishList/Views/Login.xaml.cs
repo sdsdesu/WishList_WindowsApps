@@ -38,7 +38,7 @@ namespace WishList
 
         public void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            //testDbAsync();
+           // testDbAsync();
 
 
             Runtime.LoggedInUserId = 1;
@@ -53,7 +53,7 @@ namespace WishList
                 Text = "Awesome item",
                 Complete = false
             };
-            await App.MobileService.GetTable<TodoItem>().InsertAsync(item);
+            await App.WishlistVM8ServiceFinalClient.GetTable<TodoItem>().InsertAsync(item);
         }
 
     }
