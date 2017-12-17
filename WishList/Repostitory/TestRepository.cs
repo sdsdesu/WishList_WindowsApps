@@ -64,15 +64,14 @@ namespace WishList.Repostitory
             UserTwo.addWishlist(wishlist3);
             UserThree.addWishlist(wishlist1);
             UserThree.addWishlist(wishlist4);
-            UserThree.addWishlist(wishlist2);
-            UserThree.addWishlist(wishlist3);
+
 
             UserOne.FillFavorites(fav1);
             UserThree.FillFavorites(fav2);
 
             UserOne.addContact(UserThree);
             UserOne.addContact(UserTwo);
-            UserOne.addContact(UserOne);
+            //UserOne.addContact(UserOne);
             UserTwo.addContact(UserOne);
             UserTwo.addContact(UserThree);
 

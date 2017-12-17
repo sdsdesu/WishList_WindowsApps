@@ -42,7 +42,7 @@ namespace WishList
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(NieweItem), WishlistViewModel.selectedWishlist);
+            Frame.Navigate(typeof(NieweItem), WishlistViewModel);
         }
         
 
