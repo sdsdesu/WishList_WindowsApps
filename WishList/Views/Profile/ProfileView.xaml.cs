@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WishList.Controllers;
 using WishList.Models;
+using WishList.ViewModels;
 using WishList.Views.Profile;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -26,7 +27,7 @@ namespace WishList
     public sealed partial class ProfileView : Page
     {
         RuntimeInfo Runtime { get; set; }
-        Wishlist Favorites { get; set; }
+        WishlistViewModel WishlistViewModel { get; set;}
 
         public ProfileView()
         {
@@ -37,23 +38,25 @@ namespace WishList
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            User u = e.Parameter as User;
-            Favorites = u.Favorites;
-            username.Text = u.getFullName();
-            email.Text = "Email: " + u.Email;
-            FavoriteFrame.Navigate(typeof(FavoriteWishes), u);
-            if (u == Runtime.LoggedInUser)
+            User selectedUser = e.Parameter as User;
+            WishlistViewModel = new WishlistViewModel(selectedUser.Favorites);
+            WishlistViewModel.selectedUser = selectedUser;
+            
+            FavoriteFrame.Navigate(typeof(FavoriteWishes), WishlistViewModel);
+            if (WishlistViewModel.selectedUser == Runtime.LoggedInUser)
             {
+                WishlistViewModel.activeUser = Runtime.LoggedInUser;
                 ButtonAdd.Visibility = Visibility.Visible;
             }
             else {
                 ButtonAdd.Visibility = Visibility.Collapsed;
             }
+            DataContext = WishlistViewModel;
         }
 
         public void AddFavorite_Click(object sender, RoutedEventArgs e)
         {
-            FavoriteFrame.Navigate(typeof(NieweItem), Favorites);
+            FavoriteFrame.Navigate(typeof(NieweItem), WishlistViewModel);
         }
     }
 }

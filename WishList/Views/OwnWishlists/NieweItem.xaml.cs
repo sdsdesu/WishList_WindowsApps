@@ -39,14 +39,15 @@ namespace WishList
         {
             //Create wishlist for user and add to the logged in user, appcontroller connects to database and adds it there as well
             Item i = new Item(NameWish.Text, (Category)CategoryBox.SelectedItem);
-            i.WebLink = WebLink.Text;
+            if(!(WebLink.Text==null || WebLink.Text==""))
+                i.WebLink = WebLink.Text;
             i.Description = DescriptionItem.Text;
 
             WishlistViewModel.AddItem(i);
             //end testcode
             if (WishlistViewModel.selectedWishlist.Title == "Mijn favoriete cadeau's")
             {
-                Frame.Navigate(typeof(FavoriteWishes));
+                Frame.Navigate(typeof(FavoriteWishes), WishlistViewModel);
             }
             else {
                 Frame.Navigate(typeof(WishListPage), WishlistViewModel.selectedWishlist);
@@ -57,7 +58,7 @@ namespace WishList
         {
             if (WishlistViewModel.selectedWishlist.Title == "Mijn favoriete cadeau's")
             {
-                Frame.Navigate(typeof(FavoriteWishes));
+                Frame.Navigate(typeof(FavoriteWishes), WishlistViewModel);
             }
             else
             {
@@ -67,13 +68,9 @@ namespace WishList
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
-            Wishlist w = e.Parameter as Wishlist;
+
+            WishlistViewModel = e.Parameter as WishlistViewModel;
             //Check if passed
-            if (w != null)
-            {
-                WishlistViewModel = new WishlistViewModel(w);    //replace Ac.selectedwishlist with wishlistviewmodel
-            } 
             WishlistName.Text = "Voor Wishlist: " + WishlistViewModel.selectedWishlist.Title;
             CategoryBox.ItemsSource = Enum.GetValues(typeof(Category));
             CategoryBox.SelectedIndex = 0; //can only be done here as contents of list are only initialized in the line above

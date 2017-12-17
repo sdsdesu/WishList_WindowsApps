@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace WishList.Models
 {
-    public class User
+    public class User : INotifyPropertyChanged
     {
         //Variable declaration with getters and setters
         public int UserId { get; set; }                    //id of user    //unique generated on creation
         public string Firstname { get; set; }              //name of user
         public string Lastname { get; set; }
         public string Email { get; set; }                  //email of user, can be used to add user to contacts/friendlist
-        public List<User> Contacts { get; set; }           //list of people the user can add to his wishlist (get from phone contact list or facebook account)
-        public List<Message> Notifications { get; set; }
-        public List<Wishlist> MyWishlists { get; set; }    //Wishlists of the user - functionality(wishlist stays for owner even after deadline, and all the buyers become visible to him)
-        public List<Wishlist> OthersWishlists { get; set; }//Wishlists currently participating in
+        public ObservableCollection<User> Contacts { get; set; }           //list of people the user can add to his wishlist (get from phone contact list or facebook account)
+        public ObservableCollection<Message> Notifications { get; set; }
+        public ObservableCollection<Wishlist> MyWishlists { get; set; }    //Wishlists of the user - functionality(wishlist stays for owner even after deadline, and all the buyers become visible to him)
+        public ObservableCollection<Wishlist> OthersWishlists { get; set; }//Wishlists currently participating in
         public Wishlist Favorites { get; set; }            //Single wishlist containing gift that fit in any occasion, like favorite flowers, choclate, candy, wine, giftcards of specific stores, favorite authors for books...
 
         //STill needs image added once db in order
@@ -29,13 +30,22 @@ namespace WishList.Models
             Firstname = firstname;
             Lastname = lastname;
             Email = email;
-            Contacts = new List<User>();
-            Notifications = new List<Message>();
-            MyWishlists = new List<Wishlist>();
-            OthersWishlists = new List<Wishlist>();
+            Contacts = new ObservableCollection<User>();
+            Notifications = new ObservableCollection<Message>();
+            MyWishlists = new ObservableCollection<Wishlist>();
+            OthersWishlists = new ObservableCollection<Wishlist>();
             Favorites = new Wishlist("Mijn favoriete cadeau's", "General");
         }
 
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged(String propertyName)
+        {
+            if (null != PropertyChanged)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
         //Functions
         //Function 1)GetFullName
         public string getFullName() {
@@ -47,6 +57,9 @@ namespace WishList.Models
         public void addContact(User contact) {
             //AppController gets given email string, looks in database for user retrieves it and calls this function
             Contacts.Add(contact);
+            foreach (Wishlist w in contact.MyWishlists) {
+                OthersWishlists.Add(w);
+            }
         }
 
         public void addNotification(Message m) {
@@ -68,7 +81,7 @@ namespace WishList.Models
             return false;
         }
 
-        public List<Wishlist> getMyWishlists() {
+        public ObservableCollection<Wishlist> getMyWishlists() {
             return MyWishlists;
         }
 

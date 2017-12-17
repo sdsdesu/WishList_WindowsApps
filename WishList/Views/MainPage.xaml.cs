@@ -50,7 +50,7 @@ namespace WishList
         }
         public void ButtonOtherWishlists_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(typeof(WishlistsOthers));
+            MainFrame.Navigate(typeof(WishlistsOthers), Runtime.LoggedInUser);
         }
         public void ButtonSocial_Click(object sender, RoutedEventArgs e)
         {

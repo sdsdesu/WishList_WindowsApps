@@ -23,6 +23,8 @@ namespace WishList.Models
         {
             Name = name;
             Category = category;
+            Image = "/Images/testImage.png"; //placeholder value to prevent uri conversion error
+            WebLink = "https://stackoverflow.com/questions/2552853/how-to-bind-multiple-values-to-a-single-wpf-textblock";  //placeholder weblink to prevent uri conversion error - look into how to disable when no weblink given
         }
 
         public Item(string name, Category category, string description) : this(name, category)
@@ -34,11 +36,6 @@ namespace WishList.Models
         {
             WebLink = weblink;
         }
-
-
-
-
-
 
     }
 }

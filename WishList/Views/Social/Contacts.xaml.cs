@@ -17,6 +17,7 @@ using System.Collections.ObjectModel;
 using WishList.Models;
 using WishList.Controllers;
 using WishList.Views.Social;
+using WishList.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -28,9 +29,10 @@ namespace WishList
     public sealed partial class Contacts : Page
     {
 
-        public ObservableCollection<User> Friends = new ObservableCollection<User>();
+
         RuntimeInfo Runtime;
-        public User SelectedContact { get; set; }
+        ContactViewModel ContactViewModel;
+
 
         public Contacts()
         {
@@ -38,14 +40,9 @@ namespace WishList
             Runtime = RuntimeInfo.Instance;
 
             MyFriends.Height = Runtime.ScreenHeight/1.2;
-            MyFriends.Width = Runtime.ScreenWidth;
+            MyFriends.Width = Runtime.ScreenWidth-40;
 
-            foreach (User f in Runtime.LoggedInUser.Contacts)
-            {
-                Friends.Add(f);
-            }
-            Friends.OrderBy(x => x.Firstname);
-            MyFriends.DataContext = Friends;
+            
         }
 
 
@@ -53,7 +50,7 @@ namespace WishList
         {
             if (MyFriends.SelectedItem != null)
             {
-                SelectedContact = (User)MyFriends.SelectedItem;
+                ContactViewModel.selectedContact = (User)MyFriends.SelectedItem;
                 ButtonView.Visibility = Visibility.Visible;
             }
 
@@ -72,13 +69,24 @@ namespace WishList
             selectedItem.ContentTemplate = (DataTemplate)this.Resources["SelectedItemView"];
         }
 
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            User ActiveUser = e.Parameter as User;
+            if (ActiveUser != null)//check if logged in
+            {
+                ContactViewModel = new ContactViewModel(ActiveUser);
+                DataContext = ContactViewModel;
+            }
+        }
+
         public void AddFriendButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(AddContact));
         }
         public void ViewDetailButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(ProfileView), SelectedContact);
+            Frame.Navigate(typeof(ProfileView), ContactViewModel.selectedContact);
         }
 
     }
