@@ -56,15 +56,15 @@ namespace WishList.Views.OwnWishlists
 
             var listBox = sender as ListBox;
             //get unselected item
-            var unselectedItem = e.RemovedItems.FirstOrDefault() as User;
-            if (unselectedItem != null)
+            var unselectedPerson = e.RemovedItems.FirstOrDefault() as User;
+            if (unselectedPerson != null)
             {
                 //get unselected item container
-                var unselectedItemContainer = listBox.ContainerFromItem(unselectedItem) as ListBoxItem;
+                var unselectedItemContainer = listBox.ContainerFromItem(unselectedPerson) as ListBoxItem;
                 //set ContentTemplate
                 if (unselectedItemContainer != null)//To prevent crash on attempt to unselect removed object
                 {
-                    ContactViewModel.selectedBuyers.Remove(unselectedItem);
+                    ContactViewModel.selectedBuyers.Remove(unselectedPerson);
                 }
             }
             else
