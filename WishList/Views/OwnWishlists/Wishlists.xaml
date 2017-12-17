@@ -32,9 +32,15 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-        
-            <TextBlock x:Name="Title" TextWrapping="Wrap" Text="My Wishlists" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="3" />
+        <Grid Grid.Row="0">
 
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="*" MinWidth="100"/>
+                <ColumnDefinition Width="*" MinWidth="100"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="Title" TextWrapping="Wrap" Text="My Wishlists" Style="{StaticResource TitleTextBlockStyle}" />
+            <TextBlock x:Name="Status" TextWrapping="Wrap" Text="" Grid.Column="1" HorizontalAlignment="Right"/>
+        </Grid>
 
         <ScrollViewer Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" >
             <ListBox Grid.Row="1" x:Name="myWishlists" ItemTemplate="{StaticResource ItemView}" ItemsSource="{Binding}" SelectionChanged="SelectionChanged_Wishlist" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"   >
