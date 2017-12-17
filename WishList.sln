@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2003
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WishList", "WishList\WishList.csproj", "{F91EE967-FE3D-45C2-B0FD-BC01B9C75BD4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{10E4A769-CA00-4EBF-A187-DAD723B64214} = {10E4A769-CA00-4EBF-A187-DAD723B64214}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WislistDataCore", "WislistDataCore\WislistDataCore.csproj", "{10E4A769-CA00-4EBF-A187-DAD723B64214}"
 EndProject
