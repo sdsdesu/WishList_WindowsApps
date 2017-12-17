@@ -43,6 +43,7 @@
             <TextBlock x:Name="Status" TextWrapping="Wrap" Text="" Grid.Column="1" HorizontalAlignment="Right"/>
         </Grid>
 
+        <ComboBox SelectedItem="{Binding SortingMethod, Mode=TwoWay}" ItemsSource="{Binding SortingMethods}"  HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" Grid.Row="1"/>
 
         <ListBox x:Name="myWishlists" Grid.Row="2" ItemTemplate="{StaticResource ItemView}" ItemsSource="{Binding activeUser.MyWishlists}" SelectionChanged="SelectionChanged_Wishlist" Margin="5,5,5,5">
             <ListBox.ItemContainerStyle>

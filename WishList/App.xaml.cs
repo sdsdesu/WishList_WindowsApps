@@ -25,7 +25,12 @@ namespace WishList
     /// </summary>
     sealed partial class App : Application
     {
-        
+
+        // This MobileServiceClient has been configured to communicate with the Azure Mobile Service and
+        // Azure Gateway using the application url. You're all set to start working with your Mobile Service!
+        public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient WishlistVM8ServiceFinalClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+        "https://wishlistvm8servicefinal.azurewebsites.net");
+
         public static MobileServiceClient MobileService = new MobileServiceClient(
             "https://wishlistsdsdesu.azurewebsites.net"
         );
